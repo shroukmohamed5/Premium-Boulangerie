@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6ecd9">
+<meta property="og:title" content="Premium Boulangerie">
+<meta property="og:description" content="Small-batch rolls, pastries and a full coffee bar.">
+<meta property="og:image" content="assets/swirl-dough.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Bakery","name":"Premium Boulangerie","image":"assets/swirl-dough.webp","servesCuisine":"Bakery, Coffee","openingHours":["Mo-Fr 07:00-18:00","Sa 08:00-19:00","Su 08:00-15:00"]}</script>
+<title>Premium Boulangerie — Layered with warmth</title>
+<meta name="description" content="Premium: small-batch laminated pastries, rolled and baked by hand every morning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ Tokens ============ */
+:root{
+  --cream:#f6ecd9;
+  --cream-2:#efe0c4;
+  --sand:#e6cfa7;
+  --brown:#5a3a26;
+  --brown-deep:#3b2618;
+  --gold:#b8924a;
+  --gold-soft:#d9bd85;
+  --ink:#3b2618;
+  --muted:#8a6f58;
+  --serif:"Playfair Display","Didot","Bodoni 72",Georgia,serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --header-h:72px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ============ Header ============ */
+.site-header{position:sticky;top:0;z-index:50;height:var(--header-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 clamp(20px,5vw,64px);
+  background:rgba(246,236,217,.72);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+.site-header.scrolled{border-color:rgba(184,146,74,.28);background:rgba(246,236,217,.9)}
+.brand{font-family:var(--serif);font-style:italic;font-size:1.45rem;letter-spacing:.01em;justify-self:start}
+.brand small{display:block;font-family:var(--sans);font-style:normal;font-size:.56rem;letter-spacing:.34em;color:var(--gold);margin-top:-4px}
+.nav{display:flex;gap:clamp(22px,3.4vw,46px);font-size:.82rem;letter-spacing:.06em}
+.nav a{position:relative;padding:6px 0;color:var(--brown)}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.nav a:hover::after,.nav a.is-current::after{transform:scaleX(1)}
+.tools{justify-self:end;display:flex;gap:6px;align-items:center}
+.icon-btn{position:relative;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;transition:background .3s}
+.icon-btn:hover{background:rgba(184,146,74,.16)}
+.icon-btn svg{width:20px;height:20px;stroke:var(--brown);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.bag-count{position:absolute;top:3px;right:2px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--brown);color:var(--cream);font-size:.62rem;line-height:16px;text-align:center;transform:scale(0);transition:transform .35s var(--ease)}
+.bag-count.on{transform:scale(1)}
+.bag-count.pop{animation:pop .4s var(--ease)}
+@keyframes pop{50%{transform:scale(1.5)}}
+.burger{display:none}
+
+/* ============ Hero ============ */
+.hero{position:relative;min-height:calc(100svh - var(--header-h));display:grid;grid-template-columns:minmax(260px,.82fr) 1.5fr;align-items:center;padding:0 clamp(20px,6vw,96px);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;opacity:0;transition:opacity 1.4s ease}
+.hero-bg.on{opacity:1}
+.hero-bg:nth-child(1){background:radial-gradient(70% 90% at 62% 48%,#fbf3e1 0%,#f3e5c9 55%,#ecd9b6 100%)}
+.hero-bg:nth-child(2){background:radial-gradient(70% 90% at 62% 48%,#f7e9d0 0%,#eed9b6 55%,#e4c9a0 100%)}
+.hero-bg:nth-child(3){background:radial-gradient(70% 90% at 62% 48%,#f5e3c4 0%,#ead2a8 55%,#dfc096 100%)}
+.hero-bg:nth-child(4){background:radial-gradient(70% 90% at 62% 48%,#f8eedb 0%,#f0dfc1 55%,#e7d0aa 100%)}
+.orb{position:absolute;z-index:-1;border-radius:50%;pointer-events:none;will-change:transform}
+.orb.a{width:min(30vw,380px);aspect-ratio:1;right:6%;top:6%;background:radial-gradient(circle at 35% 30%,rgba(231,196,150,.65),rgba(231,196,150,.12) 70%);animation:drift 14s ease-in-out infinite alternate}
+.orb.b{width:min(8vw,90px);aspect-ratio:1;right:34%;top:12%;background:radial-gradient(circle at 35% 30%,rgba(222,175,130,.8),rgba(222,175,130,.2));animation:drift 10s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate3d(-14px,22px,0)}}
+
+.hero-copy{position:relative;z-index:3;padding:40px 0}
+.headline-wrap{position:relative;height:clamp(150px,19vw,250px)}
+.headline{position:absolute;inset:0;font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,5.3vw,5rem);line-height:.98;letter-spacing:.005em;text-transform:uppercase;color:var(--brown-deep)}
+.headline .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.headline .ln span{display:block;transform:translateY(0);transition:none}
+.headline.enter .ln span{animation:lineIn 1.05s var(--ease) both;animation-delay:calc(var(--i)*.09s + .18s)}
+.headline.leave .ln span{animation:lineOut .7s cubic-bezier(.6,0,.8,.4) both;animation-delay:calc(var(--i)*.05s)}
+@keyframes lineIn{from{transform:translateY(110%)}to{transform:none}}
+@keyframes lineOut{to{transform:translateY(-110%)}}
+.hero-sub{max-width:30ch;margin:18px 0 30px;color:var(--muted);font-weight:300;font-size:1.02rem;min-height:3.2em;transition:opacity .5s}
+.hero-sub.swap{opacity:0}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 30px;background:var(--brown);color:var(--cream);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;border-radius:2px;position:relative;overflow:hidden;transition:background .4s,transform .4s var(--ease),box-shadow .4s}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(217,189,133,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
+.btn:hover{background:var(--brown-deep);transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(59,38,24,.6)}
+.btn:hover::before{transform:translateX(120%)}
+.btn-ghost{background:transparent;color:var(--brown);box-shadow:inset 0 0 0 1px var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--cream)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* stage */
+.stage{position:relative;height:min(72vh,640px);min-height:380px;perspective:1400px;touch-action:pan-y;cursor:grab}
+.stage:active{cursor:grabbing}
+.parallax{position:absolute;inset:0;transform:translate3d(calc(var(--mx,0)*14px),calc(var(--my,0)*10px),0) rotateY(calc(var(--mx,0)*3deg)) rotateX(calc(var(--my,0)*-2deg));transition:transform .5s ease-out}
+.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;--dx:18%}
+.scene.dir-prev{--dx:-18%}
+.scene svg{width:min(100%,780px);height:auto;overflow:visible;filter:drop-shadow(0 30px 30px rgba(90,58,38,.12))}
+.scene.active{opacity:1}
+.scene.enter{animation:sceneIn 1.25s var(--ease) both}
+.scene.leave{opacity:1;animation:sceneOut .95s cubic-bezier(.55,0,.75,.35) both}
+@keyframes sceneIn{from{opacity:0;transform:translate3d(var(--dx),5%,0) rotate(calc(var(--dx)*-1.5)) scale(.7);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes sceneOut{to{opacity:0;transform:translate3d(calc(var(--dx)*-.9),-3%,0) rotate(calc(var(--dx)*1.3)) scale(.8);filter:blur(10px)}}
+.bob{animation:bob 6s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-9px)}}
+
+/* illustration inner motion */
+.scene.active .stream{transform-box:fill-box;transform-origin:top;animation:pour 1.6s .5s var(--ease) both}
+@keyframes pour{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.scene.active .puddle{transform-box:fill-box;transform-origin:center;animation:spread 1.8s .9s var(--ease) both}
+@keyframes spread{from{transform:scale(.15);opacity:0}to{transform:scale(1);opacity:1}}
+.scene.active .curl{transform-box:fill-box;transform-origin:left bottom;animation:curl 2s 1.2s var(--ease) both}
+@keyframes curl{from{transform:rotate(0)}to{transform:rotate(0)}}
+.scene.active .spiral{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 1.9s .35s var(--ease) both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.scene.active .icing{transform-box:fill-box;transform-origin:50% 0;animation:icing 1.7s .85s var(--ease) both}
+@keyframes icing{from{transform:scale(.4,.1);opacity:0}to{transform:none;opacity:1}}
+.scene.active .rise{transform-box:fill-box;transform-origin:50% 100%;animation:rise 1.5s .2s var(--ease) both}
+@keyframes rise{from{transform:scale(.94,.82)}to{transform:none}}
+.scene.active .sheet-fold{transform-box:fill-box;transform-origin:50% 100%;animation:unfold 1.4s .2s var(--ease) both}
+@keyframes unfold{from{transform:scaleY(.2) translateY(30px);opacity:.2}to{transform:none;opacity:1}}
+
+/* badge */
+.badge{position:absolute;z-index:4;right:2%;top:4%;width:clamp(78px,9vw,120px);aspect-ratio:1}
+.badge svg{width:100%;height:100%;animation:spin 26s linear infinite}
+.badge text{font-family:var(--sans);font-size:9.4px;letter-spacing:.22em;fill:var(--brown);text-transform:uppercase}
+.badge .leaf{position:absolute;inset:0;display:grid;place-items:center}
+.badge .leaf svg{width:34%;animation:none;stroke:var(--brown);fill:none;stroke-width:1.4;stroke-linecap:round}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* controls */
+.arrow{position:absolute;z-index:5;top:50%;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;transform:translateY(-50%);transition:background .3s,transform .4s var(--ease)}
+.arrow:hover{background:rgba(255,250,240,.6)}
+.arrow svg{width:22px;height:22px;stroke:var(--brown);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.arrow.next{right:clamp(8px,2vw,28px)}
+.arrow.next:hover{transform:translateY(-50%) translateX(4px)}
+.arrow.prev{left:auto;right:clamp(8px,2vw,28px);top:calc(50% + 58px)}
+.arrow.prev:hover{transform:translateY(-50%) translateX(-4px)}
+.dots{position:absolute;z-index:5;left:50%;bottom:26px;transform:translateX(-50%);display:flex;gap:10px}
+.dot{width:26px;height:20px;display:grid;place-items:center}
+.dot i{display:block;width:5px;height:5px;border-radius:5px;background:rgba(90,58,38,.35);transition:width .6s var(--ease),background .4s}
+.dot[aria-current="true"] i{width:24px;background:var(--brown)}
+
+.chat{position:fixed;z-index:60;right:clamp(14px,2.2vw,28px);bottom:clamp(14px,2.2vw,28px);width:48px;height:48px;border-radius:50%;background:var(--brown);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(59,38,24,.55);transition:transform .4s var(--ease)}
+.chat:hover{transform:scale(1.08)}
+.chat svg{width:21px;height:21px;stroke:var(--cream);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.chat::after{content:"";position:absolute;top:2px;right:2px;width:11px;height:11px;border-radius:50%;background:#c6553c;border:2px solid var(--cream)}
+
+/* ============ Sections ============ */
+section{padding:clamp(72px,10vw,140px) clamp(20px,6vw,96px)}
+.sec-head{max-width:640px;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.08;color:var(--brown-deep)}
+.sec-head p{margin-top:14px;color:var(--muted);font-weight:300;max-width:46ch}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+#pastries{background:var(--cream)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,2.4vw,34px)}
+.card{display:flex;flex-direction:column}
+.card-art{aspect-ratio:4/4.4;border-radius:3px;display:grid;place-items:center;background:linear-gradient(160deg,var(--cream-2),var(--sand));overflow:hidden;position:relative}
+.card-art svg{width:72%;transition:transform .9s var(--ease)}
+.card:hover .card-art svg{transform:scale(1.07) rotate(-5deg)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-top:18px}
+.card p{color:var(--muted);font-size:.92rem;font-weight:300;margin-top:4px;flex:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid rgba(184,146,74,.35)}
+.price{font-family:var(--serif);font-size:1.1rem}
+.add{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);padding:8px 0;position:relative}
+.add::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--gold);transition:transform .4s var(--ease);transform-origin:right}
+.add:hover::after{transform:scaleX(.3)}
+
+#craft{background:var(--brown-deep);color:var(--cream)}
+#craft .sec-head h2{color:var(--cream)}
+#craft .sec-head p{color:var(--gold-soft)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(24px,4vw,56px);counter-reset:s}
+.step{border-top:1px solid rgba(217,189,133,.45);padding-top:22px;counter-increment:s}
+.step::before{content:"0" counter(s);font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.1rem}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:8px 0 8px}
+.step p{color:#d8c6a8;font-weight:300;font-size:.95rem;max-width:34ch}
+
+#bakery{background:var(--cream-2);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:center}
+.hours{list-style:none;margin:26px 0 32px;max-width:360px}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(184,146,74,.35);font-weight:300}
+.hours b{font-weight:500}
+.bakery-art{aspect-ratio:1/1;border-radius:50% 50% 3px 3px;background:radial-gradient(circle at 50% 38%,#f9efd9,#e3c99b);display:grid;place-items:center;max-width:460px;justify-self:center;width:100%}
+.bakery-art svg{width:78%}
+
+#story{background:var(--cream);text-align:center}
+#story blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.35;max-width:24ch;margin:0 auto;color:var(--brown-deep)}
+#story p{max-width:52ch;margin:28px auto 0;color:var(--muted);font-weight:300}
+.sign{margin-top:28px;font-family:var(--serif);font-style:italic;color:var(--gold)}
+
+footer{background:var(--brown-deep);color:#d8c6a8;padding:44px clamp(20px,6vw,96px);display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;font-size:.85rem;font-weight:300}
+footer .brand{color:var(--cream)}
+.toast{position:fixed;z-index:70;left:50%;bottom:28px;transform:translate(-50%,30px);background:var(--brown-deep);color:var(--cream);padding:12px 22px;border-radius:2px;font-size:.85rem;opacity:0;pointer-events:none;transition:opacity .4s,transform .5s var(--ease)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ============ Responsive ============ */
+@media (max-width:900px){
+  .site-header{grid-template-columns:1fr auto auto;gap:4px}
+  .burger{display:grid;order:3}
+  .tools{order:2}
+  .nav{position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;gap:0;background:rgba(246,236,217,.97);padding:8px clamp(20px,5vw,64px) 20px;border-bottom:1px solid rgba(184,146,74,.3);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.4s var(--ease)}
+  .nav.open{transform:none;opacity:1;pointer-events:auto}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(184,146,74,.2);font-size:.95rem}
+  .nav a::after{display:none}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:start;padding-bottom:70px}
+  .stage{order:-1;height:46vh;min-height:300px;margin:0 -10px}
+  .hero-copy{padding:8px 0 10px}
+  .headline-wrap{height:clamp(120px,30vw,170px)}
+  .headline{font-size:clamp(2.3rem,10.5vw,3.6rem)}
+  .hero-sub{margin:10px 0 22px}
+  .arrow.next{top:30%}.arrow.prev{top:calc(30% + 54px)}
+  .badge{top:2%}
+  #bakery{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============ v2 additions ============ */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--gold),#e8c77f);z-index:90}
+.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--brown-deep);color:var(--cream);transition:transform 1s var(--ease) .25s}
+.loader.done{transform:translateY(-100%)}
+.loader b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.4rem,7vw,5rem);animation:fadeUp 1s var(--ease) both}
+.loader i{display:block;height:1px;margin-top:12px;background:var(--gold);animation:grow 1.3s .2s var(--ease) both}
+@keyframes grow{from{width:0}to{width:100%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}}
+#flour{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.frame{position:relative;width:min(100%,760px);aspect-ratio:16/9.6;border-radius:22px;overflow:hidden;box-shadow:0 40px 60px -30px rgba(59,38,24,.5)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.scene.active .frame img{animation:kb 9s ease-out both}
+@keyframes kb{from{transform:scale(1.2)}to{transform:scale(1.04)}}
+.marquee{background:var(--brown);color:var(--gold-soft);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--serif);font-style:italic;font-size:1.25rem}
+.marquee>div{display:inline-block;animation:mq 34s linear infinite}
+.marquee:hover>div{animation-play-state:paused}
+.marquee span{margin-left:28px}.marquee span::after{content:"✦";margin-left:56px;color:var(--gold);font-style:normal;font-size:.8rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card-art{transition:transform .5s var(--ease),box-shadow .5s;will-change:transform}
+.card:hover .card-art{box-shadow:0 30px 40px -24px rgba(59,38,24,.5)}
+.card-art img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.card:hover .card-art img{transform:scale(1.08)}
+.pill{position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:20px;background:rgba(246,236,217,.92);color:var(--brown);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
+#signature{background:var(--cream-2);display:grid;grid-template-columns:.8fr 1fr;gap:clamp(28px,6vw,90px);align-items:center}
+.sig-img{border-radius:240px 240px 6px 6px;overflow:hidden;max-width:430px;justify-self:center;width:100%;aspect-ratio:2/3}
+.sig-img img{width:100%;height:100%;object-fit:cover;clip-path:inset(100% 0 0 0);transition:clip-path 1.5s var(--ease)}
+.sig-img.in img{clip-path:inset(0)}
+.batch{margin-bottom:30px;max-width:420px}
+.batch-top{display:flex;justify-content:space-between;font-weight:300;margin-bottom:8px}
+.batch-top b{font-family:var(--serif);font-weight:500;font-size:1.4rem}
+.bar{height:6px;border-radius:6px;background:rgba(90,58,38,.15);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--brown));transition:width 2s .4s var(--ease)}
+.batch.in .bar i{width:var(--w,50%)}
+.batch small{display:block;margin-top:8px;color:var(--muted);font-weight:300}
+.gallery{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(18px,3vw,40px);margin-bottom:clamp(48px,7vw,90px);align-items:start}
+.pimg{overflow:hidden;border-radius:4px;position:relative;aspect-ratio:16/10}
+.pimg+.pimg{margin-top:clamp(24px,6vw,80px)}
+.pimg img{width:100%;height:100%;object-fit:cover;transform:translateY(var(--py,0px)) scale(1.18)}
+.pimg figcaption{position:absolute;left:16px;bottom:14px;padding:6px 14px;border-radius:20px;background:rgba(59,38,24,.72);backdrop-filter:blur(6px);color:var(--cream);font-size:.78rem;letter-spacing:.08em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center;padding:clamp(48px,6vw,80px) clamp(20px,6vw,96px);background:var(--cream)}
+.stats b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(3rem,6vw,5rem);line-height:1;color:var(--brown-deep)}
+.stats span{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.74rem}
+.bakery-art{aspect-ratio:4/5;overflow:hidden;border-radius:240px 240px 6px 6px}
+.bakery-art img{width:100%;height:100%;object-fit:cover;object-position:45% 60%;transition:transform 1.4s var(--ease)}
+.bakery-art:hover img{transform:scale(1.06)}
+.status{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;padding:6px 16px;border-radius:20px;background:rgba(90,58,38,.08);font-size:.82rem;letter-spacing:.05em}
+.status i{width:8px;height:8px;border-radius:50%;background:#a33}
+.status i.on{background:#3a8a4f;animation:ping 1.8s infinite}
+@keyframes ping{50%{box-shadow:0 0 0 7px rgba(58,138,79,0)}0%{box-shadow:0 0 0 0 rgba(58,138,79,.5)}}
+.news{display:flex;gap:10px}
+.news input{padding:12px 16px;border:1px solid rgba(217,189,133,.5);border-radius:2px;background:transparent;color:var(--cream);font:inherit;min-width:200px}
+.news input::placeholder{color:#b9a687}
+.news .btn{padding:12px 22px;background:var(--gold)}
+.scrim{position:fixed;inset:0;z-index:80;background:rgba(59,38,24,.45);opacity:0;pointer-events:none;transition:opacity .4s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;z-index:85;top:0;right:0;bottom:0;width:min(400px,100vw);display:flex;flex-direction:column;background:var(--cream);transform:translateX(105%);transition:transform .6s var(--ease);box-shadow:-20px 0 50px -20px rgba(59,38,24,.5)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid rgba(184,146,74,.35)}
+.dh h3{font-family:var(--serif);font-weight:500;font-size:1.5rem}
+#dList{list-style:none;flex:1;overflow:auto;padding:8px 24px}
+#dList li{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(184,146,74,.25)}
+#dList img{width:64px;height:64px;object-fit:cover;border-radius:4px}
+#dList b{display:block;font-family:var(--serif);font-weight:500}#dList span{color:var(--muted);font-size:.9rem}
+#dList .empty{display:block;color:var(--muted);padding:40px 0;text-align:center}
+.qty{display:flex;align-items:center;gap:10px}.qty button{width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--gold)}.qty em{font-style:normal;min-width:14px;text-align:center}
+.df{padding:20px 24px 26px;border-top:1px solid rgba(184,146,74,.35)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}.tot b{font-family:var(--serif);font-weight:500;font-size:1.6rem}
+.df .btn{width:100%;justify-content:center}
+@media (max-width:900px){#signature{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.pimg+.pimg{margin-top:0}.sig-img{max-width:340px}}
+@media (prefers-reduced-motion:reduce){.sig-img img{clip-path:none}.loader{display:none}}
+
+.mode{display:flex;gap:8px;margin-bottom:12px}
+.mode button{flex:1;padding:10px;border-radius:2px;box-shadow:inset 0 0 0 1px var(--gold);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s}
+.mode button.on{background:var(--brown);color:var(--cream);box-shadow:none}
+#addr{width:100%;padding:11px 14px;margin-bottom:12px;border:1px solid rgba(184,146,74,.5);border-radius:2px;background:transparent;font:inherit}
+#addr[hidden]{display:none}
+.row{display:flex;justify-content:space-between;font-weight:300;padding:3px 0}
+#dHint{color:var(--gold);font-size:.82rem;min-height:1.3em}
+.hours li.today{color:var(--brown-deep)}.hours li.today span::before{content:"";display:inline-block;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--gold)}
+#reserve{background:var(--cream)}
+.rgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(20px,4vw,56px);align-items:start}
+.dcard,.rform{padding:clamp(24px,3.4vw,44px);border-radius:4px}
+.dcard{background:var(--brown-deep);color:var(--cream)}
+.dcard h3,.rform h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;margin-bottom:20px}
+.dcard p{color:#d8c6a8;font-weight:300;margin:22px 0 26px}
+.perks{list-style:none}.perks li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-top:1px solid rgba(217,189,133,.35)}
+.perks b{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--gold-soft)}.perks span{font-weight:300;text-align:right}
+.dcard .btn{background:var(--gold)}
+.rform{background:var(--cream-2);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rform h3,.rform .btn,.rform .ok{grid-column:1/-1}
+.rform label{display:flex;flex-direction:column;gap:6px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rform input,.rform select{padding:12px 14px;border:1px solid rgba(184,146,74,.5);border-radius:2px;background:var(--cream);font:inherit;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.rform .btn{justify-content:center}.rform .ok{color:var(--brown-deep);font-weight:500}
+@media (max-width:900px){.rgrid{grid-template-columns:1fr}.rform{grid-template-columns:1fr}}
+
+.art{width:100%;height:100%;display:grid;place-items:center;background-size:cover;background-position:center;transition:transform 1.1s var(--ease)}
+.art svg{width:64%}.card:hover .card-art .art{transform:scale(1.07)}
+.steam{fill:none;stroke:#b8924a;stroke-width:3;stroke-linecap:round;opacity:.5;animation:steam 3s ease-in-out infinite}
+@keyframes steam{50%{transform:translateY(-7px);opacity:.95}}
+.bar2{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-bottom:36px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{padding:9px 20px;border-radius:30px;box-shadow:inset 0 0 0 1px var(--gold);text-transform:capitalize;font-size:.86rem;transition:.3s}.tabs button.on{background:var(--brown);color:var(--cream);box-shadow:none}
+#q{padding:11px 18px;min-width:230px;border:1px solid rgba(184,146,74,.5);border-radius:30px;background:transparent;font:inherit}
+.card{animation:fadeUp .7s var(--ease) both}.none{color:var(--muted)}
+#dList .t{width:64px;height:64px;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--cream-2),var(--sand))}.t .art svg{width:80%}
+.chips{border:0;margin:0 0 16px}.chips legend{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chips label{position:relative;display:inline-block;margin:0 8px 8px 0}.chips input{position:absolute;opacity:0}
+.chips span{display:inline-block;padding:9px 16px;border-radius:30px;box-shadow:inset 0 0 0 1px var(--gold);font-size:.88rem;cursor:pointer;transition:.3s}
+.chips input:checked+span{background:var(--brown);color:var(--cream);box-shadow:none}.chips input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+#coffee{background:#2a1a10;color:var(--cream)}#coffee .sec-head h2{color:var(--cream)}#coffee .sec-head p{color:var(--gold-soft)}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:40px}
+.pair{background:rgba(255,244,220,.06);border:1px solid rgba(217,189,133,.3);border-radius:6px;padding:20px}
+.pt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.pa{aspect-ratio:1;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--cream-2),var(--sand))}
+.pair h3{font-family:var(--serif);font-weight:500;font-size:1.3rem}.pair h3 em{color:var(--gold)}.pair p{color:var(--gold-soft);margin:6px 0 16px;font-weight:300}.pair .btn,#coffee .btn-ghost{background:var(--gold);color:var(--cream)}
+#coffee .perks{max-width:700px;margin-bottom:30px}#coffee .perks li{border-color:rgba(217,189,133,.3)}
+#build{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:center}
+.build-img{aspect-ratio:4/3.6;border-radius:6px;overflow:hidden;box-shadow:0 40px 60px -30px rgba(59,38,24,.5)}.build-img img{width:100%;height:100%;object-fit:cover}
+#bNote{width:100%;min-height:70px;padding:12px 14px;margin:6px 0 16px;border:1px solid rgba(184,146,74,.5);border-radius:2px;background:transparent;font:inherit;resize:vertical}
+.btotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}.btotal b{font-family:var(--serif);font-weight:500;font-size:1.8rem}
+.modal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:20px;background:rgba(42,26,16,.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s}.modal.on{opacity:1;pointer-events:auto}
+.mbox{position:relative;display:grid;grid-template-columns:1fr 1fr;width:min(820px,100%);max-height:90vh;overflow:auto;background:var(--cream);border-radius:6px;transform:translateY(20px);transition:transform .5s var(--ease)}.modal.on .mbox{transform:none}.mbox:has(.trk){grid-template-columns:1fr;max-width:460px}
+.mart,.mart .art{min-height:320px}.mart{background:linear-gradient(160deg,var(--cream-2),var(--sand))}
+.mtxt{padding:30px}.mtxt h3{font-family:var(--serif);font-weight:500;font-size:1.8rem;margin-bottom:8px}.mtxt p{color:var(--muted);font-weight:300;margin-bottom:14px}.mtxt small{display:block;margin-bottom:18px;color:var(--muted);line-height:1.7}
+.mfoot{display:flex;justify-content:space-between;align-items:center;gap:14px}.mfoot b{font-family:var(--serif);font-weight:500;font-size:1.6rem}
+.mx{position:absolute;top:10px;right:14px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(246,236,217,.9);font-size:1.6rem;line-height:1}
+.trk ol{list-style:none;margin:18px 0 0}.trk li{position:relative;margin-left:8px;padding:12px 0 12px 34px;border-left:2px solid rgba(184,146,74,.3);color:var(--muted);transition:.6s}
+.trk li::before{content:"";position:absolute;left:-8px;top:14px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:2px solid var(--gold)}.trk li.done{color:var(--brown-deep);border-color:var(--gold)}.trk li.done::before{background:var(--gold)}
+.promo{display:flex;gap:8px;margin:8px 0 12px}.promo input{flex:1;padding:10px 12px;border:1px solid rgba(184,146,74,.5);border-radius:2px;background:transparent;font:inherit}.promo button{padding:0 16px;box-shadow:inset 0 0 0 1px var(--gold)}
+.upsell{display:block;width:100%;margin:6px 0;padding:10px;text-align:left;border-radius:2px;background:rgba(184,146,74,.15);font-size:.85rem}.df{max-height:62vh;overflow:auto}
+#reviews{background:var(--cream-2);text-align:center}#rev{max-width:720px;margin:0 auto;min-height:190px;opacity:0;transform:translateY(10px);transition:.5s}#rev.in{opacity:1;transform:none}
+.stars{color:var(--gold);letter-spacing:.3em;margin-bottom:14px}#rev blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.4}#rev cite{display:block;margin-top:14px;color:var(--muted);font-style:normal}
+.rdots{display:flex;gap:8px;justify-content:center;margin-top:24px}.rdots i{width:6px;height:6px;border-radius:6px;background:rgba(90,58,38,.3);transition:.5s}.rdots i.on{width:22px;background:var(--brown)}
+#faq{background:var(--cream)}.faqgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,6vw,90px)}
+details{border-top:1px solid rgba(184,146,74,.4);padding:18px 0}details:last-of-type{border-bottom:1px solid rgba(184,146,74,.4)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-family:var(--serif);font-size:1.2rem}summary::after{content:"+";color:var(--gold);transition:transform .4s}details[open] summary::after{transform:rotate(45deg)}details p{margin-top:10px;color:var(--muted);font-weight:300}
+.visit{align-self:start;padding:clamp(24px,3vw,40px);border-radius:4px;background:var(--brown-deep);color:var(--cream)}.visit h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin-bottom:14px}.visit p{margin-bottom:6px;color:#d8c6a8;font-weight:300}.visit .btn{margin:16px 10px 0 0;background:var(--gold);color:var(--cream)}.visit .btn-ghost{background:transparent;box-shadow:inset 0 0 0 1px var(--gold)}
+.wal{color:var(--gold);text-decoration:underline}.mbar{display:none}
+@media (max-width:900px){#build,.faqgrid,.mbox{grid-template-columns:1fr}.mart,.mart .art{min-height:220px}
+.mbar{position:fixed;z-index:55;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);background:var(--brown-deep);padding-bottom:env(safe-area-inset-bottom,0px)}
+.mbar a{padding:14px 0;text-align:center;color:var(--cream);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase}.chat{bottom:70px}.toast{bottom:76px}footer{padding-bottom:84px}}
+#coffee{background:linear-gradient(rgba(34,20,12,.9),rgba(34,20,12,.95)),url(assets/coffee-bg.webp) center/cover}
+.cmosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:clamp(380px,44vw,560px);margin-bottom:40px}
+.cmosaic figure{position:relative;overflow:hidden;border-radius:6px}.cmosaic figure:first-child{grid-row:1/3}
+.cmosaic img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}.cmosaic figure:hover img{transform:scale(1.06)}
+.cmosaic figcaption{position:absolute;left:14px;bottom:12px;padding:6px 14px;border-radius:20px;background:rgba(34,20,12,.7);backdrop-filter:blur(6px);color:var(--cream);font-size:.78rem;letter-spacing:.08em}
+@media (max-width:700px){.cmosaic{grid-template-columns:1fr;grid-template-rows:none;height:auto}.cmosaic figure,.cmosaic figure:first-child{grid-row:auto;aspect-ratio:4/3}}
+#board{background:var(--cream-2)}
+.boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:28px;align-items:start}
+.board{padding:14px;border-radius:4px;background:linear-gradient(135deg,#9a6a3e,#6b4326 45%,#8a5a34 70%,#5e3a20);box-shadow:0 30px 40px -24px rgba(59,38,24,.6),inset 0 0 0 1px rgba(255,220,170,.25)}
+.bd{padding:28px 24px 22px;background:radial-gradient(120% 90% at 30% 0%,#26201a,#14100c 70%);box-shadow:inset 0 0 50px rgba(0,0,0,.7);color:#efe3cc}
+.bd h3{display:flex;align-items:center;gap:14px;margin-bottom:18px;font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:.24em;text-transform:uppercase;color:#e0a548}
+.bd h3::before,.bd h3::after{content:"";flex:1;height:1px;background:rgba(224,165,72,.5)}
+.bd h4{margin:18px 0 6px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.05rem;color:#e0a548}
+.r{display:flex;align-items:baseline;gap:8px;padding:7px 4px;cursor:pointer;opacity:0;transform:translateX(-10px);transition:background .3s}
+.board.in .r{opacity:1;transform:none;transition:opacity .6s calc(var(--i,0)*70ms + .2s),transform .6s calc(var(--i,0)*70ms + .2s),background .3s}
+.r:hover{background:rgba(224,165,72,.12)}
+.r .n{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.r i{flex:1;border-bottom:1px dotted rgba(239,227,204,.3);transform:translateY(-4px)}
+.r b{min-width:44px;text-align:right;font-weight:400;font-size:.86rem;color:#e0a548}
+.r.h{cursor:default;padding-bottom:2px}.r.h b{font-size:.7rem;letter-spacing:.2em;opacity:.8}.r.h:hover{background:none}
+.bd .foot{margin-top:18px;padding-top:12px;border-top:1px solid rgba(224,165,72,.3);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#bfae92}
+.filler{display:flex;align-items:flex-end;min-height:260px;padding:clamp(22px,3vw,40px);border-radius:4px;background-size:cover;background-position:center;color:var(--cream);animation:fadeUp .7s var(--ease) both}
+.filler h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,2.2vw,2rem);margin-bottom:8px}
+.filler p{max-width:420px;margin-bottom:18px;color:#e8d9bd;font-weight:300}.filler .btn{background:var(--gold);color:var(--cream)}
+#story{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(28px,6vw,90px);align-items:center;text-align:left}
+#story blockquote,#story p{margin-left:0;margin-right:0;max-width:none}#story blockquote{max-width:20ch}
+.story-img{width:100%;max-width:460px;justify-self:center;aspect-ratio:4/5;overflow:hidden;border-radius:240px 240px 6px 6px;box-shadow:0 40px 60px -30px rgba(59,38,24,.5)}
+.story-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}.story-img:hover img{transform:scale(1.05)}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(340px,40vw,520px);background:var(--brown-deep);color:var(--cream)}
+.split img{width:100%;height:100%;min-height:340px;object-fit:cover;transform:translateY(var(--py,0px)) scale(1.12)}.split{overflow:hidden}
+.split-in{align-self:center;padding:clamp(28px,5vw,80px)}.split-in h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;margin-bottom:16px}
+.split-in p{max-width:380px;margin-bottom:24px;color:#d8c6a8;font-weight:300}.split-in .btn{background:var(--gold);color:var(--cream)}
+.cimg{display:block;width:100%;height:190px;object-fit:cover;border-radius:3px;margin-bottom:22px}
+@media (max-width:900px){#story{grid-template-columns:1fr}.story-img{max-width:340px}.split{grid-template-columns:1fr}.split img{min-height:260px}}
+img,.art{filter:saturate(1.06) contrast(1.02) sepia(.08)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.mk{width:24px;height:24px;margin-right:8px;vertical-align:-5px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round}
+.loader .mk{display:block;width:70px;height:70px;margin:0 auto 14px;stroke-dasharray:177;stroke-dashoffset:177;animation:draw 1.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.story3{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px)}
+.sticky{position:sticky;top:100px;height:min(70vh,560px);align-self:start}
+.stack{position:relative;height:100%;overflow:hidden;border-radius:6px;box-shadow:0 40px 60px -30px rgba(0,0,0,.6);cursor:zoom-in}
+.stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .9s var(--ease),transform 1.6s var(--ease)}
+.stack img.on{opacity:1;transform:scale(1)}
+.count{position:absolute;left:16px;bottom:14px;padding:6px 14px;border-radius:20px;background:rgba(34,20,12,.7);backdrop-filter:blur(6px);font-size:.78rem;letter-spacing:.14em}
+.chap{min-height:64vh;display:flex;flex-direction:column;justify-content:center;opacity:.3;transition:opacity .6s}.chap.on{opacity:1}
+.chap small{color:var(--gold);letter-spacing:.3em}.chap h3{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3.2rem);margin:8px 0 12px}.chap p{max-width:38ch;color:var(--gold-soft);font-weight:300}
+.fly{position:fixed;z-index:99;border-radius:6px;background-color:var(--sand);background-size:cover;background-position:center;pointer-events:none;transition:transform .75s cubic-bezier(.5,0,.8,.4),opacity .75s}
+.lb{position:fixed;inset:0;z-index:97;display:grid;place-items:center;background:rgba(20,12,8,.93);opacity:0;pointer-events:none;transition:opacity .4s;cursor:zoom-out}.lb.on{opacity:1;pointer-events:auto}
+.lb img{max-width:min(92vw,1100px);max-height:88vh;border-radius:4px;filter:none}.lb button{position:absolute;top:16px;right:24px;color:#fff;font-size:2.2rem}
+.story-img img,.cmosaic img,.sig-img img,.bakery-art img,.build-img img,.cimg,.split img{cursor:zoom-in}
+@media (max-width:900px){.story3{grid-template-columns:1fr}.sticky{top:70px;height:38vh;z-index:2}.chap{min-height:46vh}}
+@media (min-width:901px){.hero{grid-template-columns:minmax(260px,.62fr) 1.9fr}.stage{height:min(84vh,780px)}.frame{width:min(100%,1060px);aspect-ratio:16/10}}
+.hero-bg:nth-child(n+5){background:radial-gradient(70% 90% at 62% 48%,#f7ead2 0%,#eddab8 55%,#e3caa2 100%)}
+#offers{background:var(--cream)}
+.cd{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:-10px 0 30px}
+.cd span{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cd b{font-family:var(--serif);font-weight:500;font-size:1.8rem;color:var(--brown-deep);font-variant-numeric:tabular-nums}
+.code{padding:8px 16px;border-radius:30px;box-shadow:inset 0 0 0 1px var(--gold);font-size:.82rem;letter-spacing:.08em}
+.deals{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.deal{position:relative;overflow:hidden;border-radius:6px;background:var(--cream-2);animation:fadeUp .7s var(--ease) both}
+.deal-art{aspect-ratio:4/3;overflow:hidden}.deal:hover .art{transform:scale(1.07)}
+.save{position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:20px;background:#c6553c;color:#fff;font-size:.8rem}
+.deal-b{padding:20px 22px 22px}.deal h3{font-family:var(--serif);font-weight:500;font-size:1.35rem}.deal p{min-height:2.6em;margin:4px 0 14px;color:var(--muted);font-weight:300}
+.deal-f{display:flex;justify-content:space-between;align-items:center;gap:10px}.deal .now{font-family:var(--serif);font-size:1.5rem;color:var(--brown-deep)}.deal s{margin-left:8px;font-size:.9rem;color:var(--muted)}
+.lang{padding:6px 14px;margin-right:8px;border-radius:20px;box-shadow:inset 0 0 0 1px var(--gold);font-size:.8rem}
+html[lang=ar]{--serif:"Amiri","Cairo",serif;--sans:"Cairo",system-ui,sans-serif}
+html[lang=ar] *{letter-spacing:0!important;text-transform:none!important}
+html[dir=rtl] .marquee{direction:ltr}.progress{transform-origin:left}html[dir=rtl] .progress{transform-origin:right}
+html[dir=rtl] .drawer{right:auto;left:0;transform:translateX(-105%);box-shadow:20px 0 50px -20px rgba(59,38,24,.5)}html[dir=rtl] .drawer.open{transform:none}
+html[dir=rtl] .chat{right:auto;left:clamp(14px,2.2vw,28px)}html[dir=rtl] .chat::after{right:auto;left:2px}
+html[dir=rtl] .badge{right:auto;left:2%}html[dir=rtl] .arrow.next,html[dir=rtl] .arrow.prev{right:auto;left:clamp(8px,2vw,28px)}html[dir=rtl] .arrow svg{transform:scaleX(-1)}
+html[dir=rtl] .pill,html[dir=rtl] .save{left:auto;right:14px}html[dir=rtl] .count,html[dir=rtl] figcaption{left:auto;right:16px}
+html[dir=rtl] .mx{right:auto;left:14px}html[dir=rtl] .lb button{right:auto;left:24px}html[dir=rtl] .deal s{margin:0 8px 0 0}
+html[dir=rtl] .lang{margin:0 0 0 8px}html[dir=rtl] .mk{margin:0 0 0 8px}html[dir=rtl] .chips label{margin:0 0 8px 8px}
+html[dir=rtl] #story{text-align:right}html[dir=rtl] .perks span{text-align:left}
+html[dir=rtl] .trk li{margin:0 8px 0 0;padding:12px 34px 12px 0;border-left:0;border-right:2px solid rgba(184,146,74,.3)}html[dir=rtl] .trk li.done{border-right-color:var(--gold)}html[dir=rtl] .trk li::before{left:auto;right:-8px}
+@media (min-width:901px){.frame{--bs:clamp(70px,7vw,130px);width:min(calc(100% - var(--bs)),980px);margin-right:var(--bs)}html[dir=rtl] .frame{margin-right:0;margin-left:var(--bs)}}
+.arrow{display:none!important}
+html[lang=ar] .badge text{display:none}
+/* headline: size on the wrapper, height follows the number of lines, no wrapping into the sub text */
+.headline-wrap{font-size:clamp(2.2rem,3.9vw,4.1rem);height:calc(var(--n,3)*.98em + .3em)}
+.headline{font-size:inherit}.headline .ln{white-space:nowrap}
+@media (min-width:901px){.hero{grid-template-columns:minmax(300px,.85fr) 1.7fr}}
+@media (max-width:900px){.headline-wrap{font-size:clamp(2.3rem,10.5vw,3.6rem);height:calc(var(--n,3)*.98em + .3em)}}
+.mbox:has(.acc){grid-template-columns:1fr;width:min(420px,100%)}
+.acc{padding:34px 30px 30px;display:grid;gap:14px;justify-items:stretch}.acc .btn{justify-content:center;cursor:pointer}
+.acc h3{font-family:var(--serif);font-weight:500;font-size:1.8rem}.acc p{color:var(--muted);font-weight:300}
+.acc .me{display:grid;justify-items:center;gap:6px;text-align:center;margin-bottom:6px}
+.acc .atabs{display:flex;gap:26px;border-bottom:1px solid rgba(184,146,74,.35)}
+.acc .atabs button{padding:8px 0;margin-bottom:-1px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:color .3s,border-color .3s}
+.acc .atabs button:hover{color:var(--brown)}.acc .atabs button.on{color:var(--brown-deep);font-weight:500;border-color:var(--gold)}
+.acc form{display:grid;gap:12px}
+.acc input:not([hidden]){padding:12px 14px;border:1px solid rgba(184,146,74,.5);border-radius:2px;background:var(--cream);font:inherit;font-size:.95rem;color:var(--ink)}
+.acc .err{color:#a8392a;font-size:.9rem;text-align:center}.acc .err:not(:empty){padding:10px 12px;background:rgba(198,85,60,.12);border-radius:2px}
+.av{width:30px;height:30px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--brown);color:var(--cream);font-size:.85rem;font-weight:500;line-height:1}
+.av.big{width:84px;height:84px;font-size:2.1rem}
+/* larger, clearer logo */
+:root{--header-h:80px}
+.brand{font-size:2.05rem;line-height:1.05}
+.brand small{font-size:.66rem;letter-spacing:.36em;margin-top:-2px}
+.brand .mk{width:38px;height:38px;margin-right:10px;vertical-align:-9px}
+footer .brand{font-size:1.9rem}
+html[dir=rtl] .brand .mk{margin:0 0 0 10px}
+@media (max-width:900px){.brand{font-size:1.7rem}.brand .mk{width:32px;height:32px;margin-right:8px;vertical-align:-7px}}
+@media (max-width:420px){.brand{font-size:1.5rem}.brand .mk{width:28px;height:28px}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="loader" id="loader"><div><svg class="mk big" viewBox="0 0 40 40" aria-hidden="true"><path d="M21.0 20.0 L21.1 20.2 L21.2 20.4 L21.2 20.6 L21.2 20.9 L21.2 21.1 L21.1 21.4 L20.9 21.6 L20.7 21.9 L20.5 22.1 L20.2 22.3 L19.8 22.4 L19.4 22.5 L19.0 22.5 L18.6 22.4 L18.2 22.3 L17.8 22.1 L17.4 21.8 L17.0 21.4 L16.7 21.0 L16.5 20.5 L16.3 20.0 L16.2 19.4 L16.3 18.8 L16.4 18.2 L16.6 17.6 L16.9 17.0 L17.3 16.5 L17.8 16.0 L18.3 15.6 L19.0 15.3 L19.7 15.1 L20.4 14.9 L21.2 14.9 L22.0 15.1 L22.8 15.3 L23.5 15.7 L24.2 16.2 L24.9 16.8 L25.4 17.5 L25.9 18.3 L26.2 19.2 L26.3 20.1 L26.4 21.1 L26.3 22.1 L26.0 23.0 L25.6 24.0 L25.0 24.8 L24.3 25.6 L23.5 26.3 L22.6 26.9 L21.5 27.3 L20.4 27.6 L19.3 27.7 L18.1 27.6 L16.9 27.4 L15.8 26.9 L14.7 26.3 L13.7 25.6 L12.9 24.6 L12.1 23.6 L11.6 22.4 L11.2 21.1 L11.0 19.8 L11.0 18.4 L11.2 17.0 L11.6 15.7 L12.3 14.4 L13.1 13.2 L14.1 12.2 L15.3 11.3 L16.6 10.6 L18.0 10.0 L19.5 9.7 L21.1 9.6 L22.7 9.8 L24.2 10.2 L25.7 10.8 L27.1 11.7 L28.3 12.7 L29.4 14.0 L30.3 15.4 L31.0 17.0 L31.5 18.7 L31.7 20.4 L31.6 22.2 L31.3 23.9 L30.7 25.6 L29.8 27.2 L28.7 28.7 L27.4 30.0 L25.9 31.1 L24.2 32.0 L22.4 32.6 L20.5 33.0 L18.5 33.0 L16.6 32.8 L14.6 32.2 L12.8 31.4 L11.1 30.3 L9.6 28.9 L8.2 27.3 L7.2 25.5 L6.4 23.6 L5.8 21.5 L5.6 19.4 L5.8 17.2 L6.2 15.1 L7.0 13.0 L8.1 11.1 L9.5 9.3 L11.1 7.8 L13.0 6.5 L15.0 5.4 L17.2 4.7 L19.6 4.4 L21.9 4.3 L24.3 4.7 L26.6 5.4 L28.7 6.4 L30.7 7.8 L32.6 9.4 L34.1 11.4 L35.3 13.5 L36.3 15.9 L36.8 18.3 L37.0 20.9"/></svg><b>Premium</b><i></i></div></div>
+<script>setTimeout(function(){var l=document.getElementById("loader");if(l)l.classList.add("done")},4500)</script>
+
+<!-- ============ Header ============ -->
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Premium — home"><svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M21.0 20.0 L21.1 20.2 L21.2 20.4 L21.2 20.6 L21.2 20.9 L21.2 21.1 L21.1 21.4 L20.9 21.6 L20.7 21.9 L20.5 22.1 L20.2 22.3 L19.8 22.4 L19.4 22.5 L19.0 22.5 L18.6 22.4 L18.2 22.3 L17.8 22.1 L17.4 21.8 L17.0 21.4 L16.7 21.0 L16.5 20.5 L16.3 20.0 L16.2 19.4 L16.3 18.8 L16.4 18.2 L16.6 17.6 L16.9 17.0 L17.3 16.5 L17.8 16.0 L18.3 15.6 L19.0 15.3 L19.7 15.1 L20.4 14.9 L21.2 14.9 L22.0 15.1 L22.8 15.3 L23.5 15.7 L24.2 16.2 L24.9 16.8 L25.4 17.5 L25.9 18.3 L26.2 19.2 L26.3 20.1 L26.4 21.1 L26.3 22.1 L26.0 23.0 L25.6 24.0 L25.0 24.8 L24.3 25.6 L23.5 26.3 L22.6 26.9 L21.5 27.3 L20.4 27.6 L19.3 27.7 L18.1 27.6 L16.9 27.4 L15.8 26.9 L14.7 26.3 L13.7 25.6 L12.9 24.6 L12.1 23.6 L11.6 22.4 L11.2 21.1 L11.0 19.8 L11.0 18.4 L11.2 17.0 L11.6 15.7 L12.3 14.4 L13.1 13.2 L14.1 12.2 L15.3 11.3 L16.6 10.6 L18.0 10.0 L19.5 9.7 L21.1 9.6 L22.7 9.8 L24.2 10.2 L25.7 10.8 L27.1 11.7 L28.3 12.7 L29.4 14.0 L30.3 15.4 L31.0 17.0 L31.5 18.7 L31.7 20.4 L31.6 22.2 L31.3 23.9 L30.7 25.6 L29.8 27.2 L28.7 28.7 L27.4 30.0 L25.9 31.1 L24.2 32.0 L22.4 32.6 L20.5 33.0 L18.5 33.0 L16.6 32.8 L14.6 32.2 L12.8 31.4 L11.1 30.3 L9.6 28.9 L8.2 27.3 L7.2 25.5 L6.4 23.6 L5.8 21.5 L5.6 19.4 L5.8 17.2 L6.2 15.1 L7.0 13.0 L8.1 11.1 L9.5 9.3 L11.1 7.8 L13.0 6.5 L15.0 5.4 L17.2 4.7 L19.6 4.4 L21.9 4.3 L24.3 4.7 L26.6 5.4 L28.7 6.4 L30.7 7.8 L32.6 9.4 L34.1 11.4 L35.3 13.5 L36.3 15.9 L36.8 18.3 L37.0 20.9"/></svg>Premium<small>BOULANGERIE</small></a>
+  <button class="icon-btn burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+    <svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
+  </button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="#offers">Offers</a>
+    <a href="#pastries">Menu</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#craft">Craft</a>
+    <a href="#bakery" class="is-current">Bakery</a>
+    <a href="#reserve">Reserve</a>
+    <a href="#story">Story</a>
+  </nav>
+  <div class="tools">
+    <button class="lang" id="lang" aria-label="Language">العربية</button>
+    <button class="icon-btn" id="acctBtn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c.9-3.6 3.6-5.4 7.2-5.4s6.3 1.8 7.2 5.4"/></svg></button>
+    <button class="icon-btn" aria-label="Bag" id="bagBtn"><svg viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg><span class="bag-count" id="bagCount">0</span></button>
+  </div>
+</header>
+
+<main>
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured pastries">
+  <div class="hero-bg on"></div><div class="hero-bg"></div><div class="hero-bg"></div><div class="hero-bg"></div><div class="hero-bg"></div><div class="hero-bg"></div><div class="hero-bg"></div><div class="hero-bg"></div>
+  <canvas id="flour"></canvas><div class="orb a"></div><div class="orb b"></div>
+
+  <div class="hero-copy">
+    <div class="headline-wrap" id="headlineWrap" aria-live="polite"></div>
+    <p class="hero-sub" id="heroSub"></p>
+    <div class="cta-row">
+      <a class="btn" href="#pastries">Shop more</a>
+      <a class="btn btn-ghost" href="#craft">See the craft</a>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="parallax" id="parallax">
+
+      <div class="scene" data-i="0"><div class="frame bob"><img src="assets/swirl-dough.webp" alt="A cinnamon pecan dough roll cut open to show the spiral" fetchpriority="high"></div></div>
+      <div class="scene" data-i="1"><div class="frame bob"><img src="assets/choc-pour.webp" alt="Melted chocolate poured over a golden cinnamon roll"></div></div>
+      <div class="scene" data-i="2"><div class="frame bob"><img src="assets/oven.webp" alt="Four cinnamon rolls rising in a warm oven"></div></div>
+      <div class="scene" data-i="3"><div class="frame bob"><img src="assets/plated.webp" alt="A caramel pecan roll served on a painted plate"></div></div>
+      <div class="scene" data-i="4"><div class="frame bob"><img src="assets/counter.webp" alt="The Premium bakery counter with croissants and loaves"></div></div>
+      <div class="scene" data-i="5"><div class="frame bob"><img src="assets/band-croissant.webp" alt="A golden croissant in warm light"></div></div>
+      <div class="scene" data-i="6"><div class="frame bob"><img src="assets/bread-sourdough.webp" alt="Sourdough loaves in baskets"></div></div>
+      <div class="scene" data-i="7"><div class="frame bob"><img src="assets/coffee-latte.webp" alt="A latte with milk art and a cookie"></div></div>
+      
+    </div>
+
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#b8924a" stroke-width=".8"/>
+        <text><textPath href="#circ">Made daily · Small batch · Slow rise ·</textPath></text></svg>
+      <div class="leaf"><svg viewBox="0 0 24 24"><path d="M12 21c-5-2-7-6-6-11 4 0 7 2 8 6M12 21c0-5 1-9 5-13 1 5-1 10-5 13zM12 21V12"/></svg></div>
+    </div>
+  </div>
+
+  <button class="arrow next" id="next" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="arrow prev" id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <div class="dots" id="dots" role="tablist" aria-label="Slides"></div>
+</section>
+
+<div class="marquee" id="mq" aria-hidden="true"><div><span>Small batch</span> <span>Slow rise</span> <span>Cultured butter</span> <span>Baked at dawn</span> <span>Rolled by hand</span> <span>Warm from the oven</span></div></div>
+
+<section id="offers">
+  <div class="sec-head reveal"><h2>Today's offers</h2><p>Fresh deals every morning. They end at midnight.</p></div>
+  <div class="cd reveal"><span>Ends in</span><b id="cd">00:00:00</b><button class="code" id="copyCode">WELCOME10 · −10%</button></div>
+  <div class="deals" id="deals"></div>
+</section>
+
+<!-- ============ Pastries ============ -->
+<section id="pastries">
+  <div class="sec-head reveal">
+    <h2>Rolled by hand, baked until golden</h2>
+    <p>Rolls, pastries, bread and a full coffee bar, made every morning. When they are gone, they are gone.</p>
+  </div>
+  <div class="bar2"><div class="tabs" id="tabs"></div><input id="q" type="search" placeholder="Search the menu" aria-label="Search the menu"></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section id="board">
+  <div class="sec-head reveal"><h2>Today's board</h2><p>Written fresh every morning. Tap any line for details and sizes, and to add it to your bag.</p></div>
+  <div class="boards" id="boards"></div>
+</section>
+
+<section id="coffee">
+  <div class="sec-head reveal"><h2>The coffee bar</h2><p>Single-origin beans, roasted weekly and pulled to order. Pair a roll with the cup that suits it best.</p></div>
+  <div class="pairs" id="pairs"></div>
+  <div class="cmosaic reveal">
+    <figure><img src="assets/coffee-machine.webp" alt="Espresso machine at the bar" loading="lazy"><figcaption>Pulled to order</figcaption></figure>
+    <figure><img src="assets/coffee-roll.webp" alt="Espresso and a cinnamon roll with coffee beans" loading="lazy"><figcaption>Made for a roll</figcaption></figure>
+    <figure><img src="assets/coffee-roast.webp" alt="Coffee beans in a roaster" loading="lazy"><figcaption>Roasted weekly</figcaption></figure>
+  </div>
+  <ul class="perks reveal"><li><b>Single origin</b><span>Sweet, chocolatey beans</span></li><li><b>Roasted weekly</b><span>Always fresh, never stale</span></li><li><b>Oat &amp; almond</b><span>Milk alternatives, +$0.60</span></li></ul>
+  <button class="btn btn-ghost" id="seeCoffee">See all coffee</button>
+</section>
+
+<section id="signature">
+  <div class="sig-img reveal"><img src="assets/cream-pour.webp" alt="Warm vanilla cream poured over a cinnamon roll" loading="lazy"></div>
+  <div class="reveal">
+    <div class="sec-head" style="margin-bottom:28px"><h2>The cream pour</h2><p>Each roll is glazed at the counter, so the cream lands warm and slow, exactly when you reach for your first bite.</p></div>
+    <div class="batch"><div class="batch-top"><span>Today's bake</span><b id="claimed">0%</b></div><div class="bar"><i></i></div><small>Claimed so far. Fresh batch out of the oven at 14:00.</small></div>
+    <a class="btn" href="#pastries">Pre-order yours</a>
+  </div>
+</section>
+
+<section id="build">
+  <div class="build-img reveal"><img id="bPrev" src="assets/cream-pour.webp" alt="Your custom box"></div>
+  <div class="reveal">
+    <div class="sec-head" style="margin-bottom:24px"><h2>Build your box</h2><p>Choose the size, the sauce and the toppings. We bake it fresh and tie it with a ribbon.</p></div>
+    <fieldset class="chips"><legend>Box size</legend>
+      <label><input type="radio" name="bs" value="24" data-l="4 rolls" checked><span>4 rolls · $24</span></label>
+      <label><input type="radio" name="bs" value="34" data-l="6 rolls"><span>6 rolls · $34</span></label>
+      <label><input type="radio" name="bs" value="62" data-l="12 rolls"><span>12 rolls · $62</span></label></fieldset>
+    <fieldset class="chips"><legend>Sauce</legend>
+      <label><input type="radio" name="sc" value="cream" data-l="Vanilla cream" data-img="cream-pour" checked><span>Vanilla cream</span></label>
+      <label><input type="radio" name="sc" value="choc" data-l="Chocolate" data-img="choc-pour"><span>Chocolate</span></label>
+      <label><input type="radio" name="sc" value="caramel" data-l="Salted caramel" data-img="plated"><span>Salted caramel</span></label>
+      <label><input type="radio" name="sc" value="none" data-l="No sauce" data-img="swirl-dough"><span>No sauce</span></label></fieldset>
+    <fieldset class="chips"><legend>Toppings · +$1 each</legend>
+      <label><input type="checkbox" name="tp" data-l="Pecans"><span>Pecans</span></label>
+      <label><input type="checkbox" name="tp" data-l="Pearl sugar"><span>Pearl sugar</span></label>
+      <label><input type="checkbox" name="tp" data-l="Cinnamon sugar"><span>Cinnamon sugar</span></label></fieldset>
+    <textarea id="bNote" placeholder="Gift message (optional)" aria-label="Gift message"></textarea>
+    <div class="btotal"><span>Your box</span><b id="bTot">$24.00</b></div>
+    <button class="btn" id="bAdd">Add box to bag</button>
+  </div>
+</section>
+
+<!-- ============ Craft ============ -->
+<section id="craft">
+  <div class="sec-head reveal">
+    <h2>Three days for one swirl</h2>
+    <p>Our dough rests slowly, so the layers stay tender and the butter tastes like butter.</p>
+  </div>
+  <div class="story3"><div class="sticky"><div class="stack"><img class="on" src="assets/rolling.webp" alt="Baker rolling out dough" loading="lazy"><img src="assets/swirl-dough.webp" alt="A rolled cinnamon pecan dough cut open" loading="lazy"><img src="assets/oven.webp" alt="Rolls rising in the oven" loading="lazy"><img src="assets/plated.webp" alt="A caramel pecan roll on a painted plate" loading="lazy"><span class="count">01 / 04</span></div></div><div class="chapters"><article class="chap on"><small>01</small><h3>Fold</h3><p>Cultured butter is folded into the dough six times, keeping every layer cold and distinct.</p></article><article class="chap"><small>02</small><h3>Roll</h3><p>We spread the filling by hand and roll each sheet tight, so the spiral shows in every slice.</p></article><article class="chap"><small>03</small><h3>Bake</h3><p>The rolls rise overnight, then bake at dawn until the edges caramelize and the centers stay soft.</p></article><article class="chap"><small>04</small><h3>Serve</h3><p>Finished at the counter with warm cream, chocolate or caramel, the moment you order.</p></article></div></div>
+</section>
+
+<div class="stats">
+  <div class="reveal"><b data-n="72">0</b><span>hours of slow rest</span></div>
+  <div class="reveal"><b data-n="6">0</b><span>folds of cultured butter</span></div>
+  <div class="reveal"><b data-n="5">0</b><span>am, when the first oven is lit</span></div>
+</div>
+
+<div class="split">
+  <img data-speed=".06" src="assets/band-croissant.webp" alt="A golden croissant in warm light" loading="lazy">
+  <div class="split-in reveal"><h2>Baked at dawn.<br>Gone by noon.</h2><p>Our first tray leaves the oven at five. Order ahead and your favorites will be waiting.</p><a class="btn" href="#pastries">Order now</a></div>
+</div>
+
+<!-- ============ Bakery ============ -->
+<section id="bakery">
+  <div class="reveal">
+    <div class="sec-head" style="margin-bottom:0">
+      <div class="status" id="status"></div>
+      <h2>The bakery is open from sunrise</h2>
+      <p>Come in for a warm roll and a coffee, or reserve a box for later.</p>
+    </div>
+    <ul class="hours">
+      <li><span>Monday – Friday</span><b>7:00 – 18:00</b></li>
+      <li><span>Saturday</span><b>8:00 – 19:00</b></li>
+      <li><span>Sunday</span><b>8:00 – 15:00</b></li>
+    </ul>
+    <a class="btn" href="#pastries">Reserve a box</a>
+  </div>
+  <div class="bakery-art reveal"><img src="assets/counter.webp" alt="The Premium bakery counter with croissants and loaves" loading="lazy"></div>
+</section>
+
+<section id="reserve">
+  <div class="sec-head reveal"><h2>Delivered warm, or saved for you</h2><p>Order to your door, collect at the counter, or reserve a table and a box in advance.</p></div>
+  <div class="rgrid">
+    <div class="dcard reveal">
+      <img class="cimg" src="assets/pastry-sugar.webp" alt="A basket of sugar croissants" loading="lazy">
+      <h3>Delivery &amp; pick-up</h3>
+      <ul class="perks"><li><b>30–45 min</b><span>Delivery across the city</span></li><li><b>Free</b><span>on orders over $25</span></li><li><b>15 min</b><span>Pick-up at the counter</span></li></ul>
+      <p>Boxed warm and tied with a ribbon, so every roll arrives the way it left the oven.</p>
+      <button class="btn" id="orderNow">Order now</button>
+    </div>
+    <form class="rform reveal" id="rform">
+      <h3>Reserve a table or a box</h3>
+      <label>Name<input name="n" required></label>
+      <label>Phone<input name="p" type="tel" required></label>
+      <label>Date<input id="rDate" type="date" required></label>
+      <label>Time<select id="rTime"></select></label>
+      <label>Guests<select id="rG"></select></label>
+      <label>For<select id="rType"><option value="Table">Table</option><option value="Box pick-up">Box pick-up</option></select></label>
+      <button class="btn">Confirm reservation</button>
+      <p class="ok" id="rOk" hidden></p>
+    </form>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="sec-head reveal" style="margin:0 auto 36px"><h2>Loved in the neighborhood</h2></div>
+  <div id="rev"></div><div class="rdots" id="rdots"></div>
+</section>
+
+<section id="faq">
+  <div class="faqgrid">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:24px"><h2>Good to know</h2></div>
+      <details><summary>Where do you deliver?</summary><p>Within 8 km of the bakery, usually in 30–45 minutes. Delivery is free over $25.</p></details>
+      <details><summary>Do your rolls contain allergens?</summary><p>They contain gluten, dairy and eggs, and nuts are handled in our kitchen. Each item lists its allergens.</p></details>
+      <details><summary>Can I order for an event?</summary><p>Yes. Boxes of 12 or more need 24 hours' notice. Send us a message on WhatsApp.</p></details>
+      <details><summary>How can I pay?</summary><p>Cash or card at the door or at the counter.</p></details>
+      <details><summary>Do you have milk alternatives?</summary><p>Oat and almond milk for +$0.60 on any coffee.</p></details>
+    </div>
+    <div class="visit reveal">
+      <img class="cimg" src="assets/pastry-raisin.webp" alt="A pain aux raisins beside a cup of coffee" loading="lazy">
+      <h3>Visit us</h3>
+      <p>Moscow, next to the metro</p><p>+7 996 473 43 37</p><p>srukmohamed@gmail.com</p>
+      <a class="btn" href="https://maps.google.com/?q=Premium+Boulangerie+Moscow" target="_blank" rel="noopener">Open in Maps</a>
+      <a class="btn btn-ghost" id="vWa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Story ============ -->
+<section id="story">
+  <div class="story-img reveal"><img src="assets/baker.webp" alt="A Premium baker holding a basket of fresh bread" loading="lazy"></div>
+  <div class="story-txt">
+  <blockquote class="reveal">“A good pastry takes patience. We just give it the time.”</blockquote>
+  <p class="reveal">Premium began as a single oven and one recipe for cinnamon rolls. Today we still bake in small batches, with butter from a family dairy and flour from a mill we know by name.</p>
+  <div class="sign reveal">— The Premium bakers</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="#top"><svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M21.0 20.0 L21.1 20.2 L21.2 20.4 L21.2 20.6 L21.2 20.9 L21.2 21.1 L21.1 21.4 L20.9 21.6 L20.7 21.9 L20.5 22.1 L20.2 22.3 L19.8 22.4 L19.4 22.5 L19.0 22.5 L18.6 22.4 L18.2 22.3 L17.8 22.1 L17.4 21.8 L17.0 21.4 L16.7 21.0 L16.5 20.5 L16.3 20.0 L16.2 19.4 L16.3 18.8 L16.4 18.2 L16.6 17.6 L16.9 17.0 L17.3 16.5 L17.8 16.0 L18.3 15.6 L19.0 15.3 L19.7 15.1 L20.4 14.9 L21.2 14.9 L22.0 15.1 L22.8 15.3 L23.5 15.7 L24.2 16.2 L24.9 16.8 L25.4 17.5 L25.9 18.3 L26.2 19.2 L26.3 20.1 L26.4 21.1 L26.3 22.1 L26.0 23.0 L25.6 24.0 L25.0 24.8 L24.3 25.6 L23.5 26.3 L22.6 26.9 L21.5 27.3 L20.4 27.6 L19.3 27.7 L18.1 27.6 L16.9 27.4 L15.8 26.9 L14.7 26.3 L13.7 25.6 L12.9 24.6 L12.1 23.6 L11.6 22.4 L11.2 21.1 L11.0 19.8 L11.0 18.4 L11.2 17.0 L11.6 15.7 L12.3 14.4 L13.1 13.2 L14.1 12.2 L15.3 11.3 L16.6 10.6 L18.0 10.0 L19.5 9.7 L21.1 9.6 L22.7 9.8 L24.2 10.2 L25.7 10.8 L27.1 11.7 L28.3 12.7 L29.4 14.0 L30.3 15.4 L31.0 17.0 L31.5 18.7 L31.7 20.4 L31.6 22.2 L31.3 23.9 L30.7 25.6 L29.8 27.2 L28.7 28.7 L27.4 30.0 L25.9 31.1 L24.2 32.0 L22.4 32.6 L20.5 33.0 L18.5 33.0 L16.6 32.8 L14.6 32.2 L12.8 31.4 L11.1 30.3 L9.6 28.9 L8.2 27.3 L7.2 25.5 L6.4 23.6 L5.8 21.5 L5.6 19.4 L5.8 17.2 L6.2 15.1 L7.0 13.0 L8.1 11.1 L9.5 9.3 L11.1 7.8 L13.0 6.5 L15.0 5.4 L17.2 4.7 L19.6 4.4 L21.9 4.3 L24.3 4.7 L26.6 5.4 L28.7 6.4 L30.7 7.8 L32.6 9.4 L34.1 11.4 L35.3 13.5 L36.3 15.9 L36.8 18.3 L37.0 20.9"/></svg>Premium</a>
+  <form class="news" id="news"><input type="email" required placeholder="Your email" aria-label="Email"><button class="btn">Join</button></form>
+  <span>© <span id="yr"></span> Premium Boulangerie</span>
+</footer>
+
+<button class="chat" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></button>
+<div class="toast" id="toast" role="status"></div>
+<div class="scrim" id="scrim"></div>
+<div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
+<nav class="mbar" aria-label="Quick actions"><a href="#pastries">Order</a><a href="#reserve">Reserve</a><a id="mWa" href="#" target="_blank" rel="noopener">WhatsApp</a></nav>
+<aside class="drawer" id="drawer" aria-label="Your bag"><div class="dh"><h3>Your bag</h3><button class="icon-btn" id="dClose" aria-label="Close bag"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><ul id="dList"></ul><div class="df">
+  <div class="mode"><button class="on" data-mode="delivery">Delivery</button><button data-mode="pickup">Pick-up</button></div>
+  <input id="addr" placeholder="Delivery address" aria-label="Delivery address">
+  <div class="row"><span>Subtotal</span><span id="dSub">$0.00</span></div>
+  <div class="row"><span>Discount</span><span id="dDisc">$0.00</span></div>
+  <div class="row"><span>Delivery</span><span id="dFee">$0.00</span></div>
+  <div id="dHint"></div><div id="dUp"></div>
+  <div class="promo"><input id="promo" placeholder="Promo code (try WELCOME10)" aria-label="Promo code"><button id="pApply">Apply</button></div>
+  <div class="tot"><span>Total</span><b id="dTot">$0.00</b></div>
+  <button class="btn" id="checkout">Place order</button></div></aside>
+
+<script src="/api/data.js"></script>
+<script>
+(() => {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Content for each hero slide ---------- */
+  let lang = "en"; try { lang = localStorage.getItem("premium-lang") || "en"; } catch (e) {}
+  const slides = [
+    { lines: ["Made to", "swirl"], sub: "Butter, brown sugar and toasted pecans, rolled by hand into a tight spiral.", ar: { lines: ["صُنعت", "لتلتفّ"], sub: "زبدة وسكر بني وبيكان محمّص، تُلفّ باليد في دوّامة محكمة." } },
+    { lines: ["Layered", "with", "warmth"], sub: "Silky chocolate poured over a roll that is still warm from the oven.", ar: { lines: ["طبقات", "من الدفء"], sub: "شوكولاتة ناعمة تُسكب على رول ما زال دافئاً من الفرن." } },
+    { lines: ["Baked", "to rise"], sub: "Proofed overnight, then baked at dawn until the edges caramelize.", ar: { lines: ["تُخبز", "لتنتفخ"], sub: "تُخمَّر طوال الليل ثم تُخبز عند الفجر حتى تتكرمل الحواف." } },
+    { lines: ["Worth", "the swirl"], sub: "Glazed with caramel and toasted pecans, served the moment it is ready.", ar: { lines: ["تستحق", "اللفّة"], sub: "بالكراميل والبيكان المحمّص، تُقدَّم لحظة جاهزيتها." } },
+    { lines: ["Fresh", "from the", "counter"], sub: "Croissants, pastries and rustic loaves, set out warm every morning.", ar: { lines: ["طازجة", "من الكاونتر"], sub: "كرواسون ومعجنات وأرغفة ريفية، دافئة كل صباح." } },
+    { lines: ["Golden,", "flaky", "layers"], sub: "Folded by hand with cultured butter and baked until it shatters.", ar: { lines: ["طبقات", "ذهبية", "هشّة"], sub: "تُطوى باليد بزبدة مُستنبتة وتُخبز حتى تتفتّت." } },
+    { lines: ["Crust that", "crackles"], sub: "Slow-fermented sourdough, baked in small batches on stone.", ar: { lines: ["قشرة", "تُقرمش"], sub: "عجين مخمّر ببطء، يُخبز بدفعات صغيرة على الحجر." } },
+    { lines: ["Coffee,", "pulled to", "order"], sub: "Silky lattes, espresso and cold brew from single-origin beans.", ar: { lines: ["قهوة", "تُحضَّر", "عند الطلب"], sub: "لاتيه وإسبريسو وكولد برو من حبوب أحادية المنشأ." } }
+  ];
+
+  /* ---------- Spiral generator (keeps the SVG markup tidy) ---------- */
+  function spiralPath(cx, cy, rx, ry, turns, steps = 220, start = -Math.PI / 2) {
+    let d = "";
+    const total = turns * Math.PI * 2;
+    for (let i = 0; i <= steps; i++) {
+      const t = (i / steps) * total, r = 0.06 + 0.9 * (i / steps);
+      const x = cx + rx * r * Math.cos(t + start), y = cy + ry * r * Math.sin(t + start);
+      d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    return d;
+  }
+
+  /* ---------- Hero carousel ---------- */
+  const scenes = $$(".scene"), bgs = $$(".hero-bg");
+  const wrap = $("#headlineWrap"), sub = $("#heroSub"), dotsEl = $("#dots");
+  let cur = 0, busy = false, timer = null;
+
+  slides.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.className = "dot"; b.setAttribute("role", "tab"); b.setAttribute("aria-label", "Go to slide " + (i + 1));
+    b.innerHTML = "<i></i>"; b.addEventListener("click", () => go(i)); dotsEl.appendChild(b);
+  });
+  const dots = $$(".dot");
+
+  function makeHeadline(s) {
+    const h = document.createElement("h1");
+    h.className = "headline";
+    h.innerHTML = (lang === "ar" && s.ar ? s.ar.lines : s.lines).map((l, i) => `<span class="ln"><span style="--i:${i}">${l}</span></span>`).join("");
+    return h;
+  }
+
+  function render(i, dir, first) {
+    // headline
+    const old = $(".headline", wrap), h = makeHeadline(slides[i]);
+    if (old && !first) { old.classList.add("leave"); setTimeout(() => old.remove(), 900); }
+    wrap.style.setProperty("--n", (lang === "ar" && slides[i].ar ? slides[i].ar.lines : slides[i].lines).length);
+    h.classList.add("enter"); wrap.appendChild(h);
+    // sub text
+    sub.classList.add("swap");
+    setTimeout(() => { sub.textContent = lang === "ar" && slides[i].ar ? slides[i].ar.sub : slides[i].sub; sub.classList.remove("swap"); }, first ? 0 : 380);
+    // backgrounds + dots
+    bgs.forEach((b, k) => b.classList.toggle("on", k === i));
+    dots.forEach((d, k) => d.setAttribute("aria-current", k === i));
+  }
+
+  function go(i, dir) {
+    i = (i + slides.length) % slides.length;
+    if (i === cur || busy) return;
+    dir = dir || (i > cur || (cur === slides.length - 1 && i === 0) ? 1 : -1);
+    busy = true;
+    const out = scenes[cur], inn = scenes[i];
+    [out, inn].forEach(s => s.classList.toggle("dir-prev", dir < 0));
+    out.classList.remove("active", "enter"); out.classList.add("leave");
+    inn.classList.remove("leave"); inn.classList.add("active", "enter");
+    render(i, dir);
+    cur = i;
+    setTimeout(() => { out.classList.remove("leave"); inn.classList.remove("enter"); busy = false; }, reduce ? 50 : 1250);
+    restart();
+  }
+  const next = () => go(cur + 1, 1), prev = () => go(cur - 1, -1);
+
+  function restart() {
+    clearInterval(timer);
+    if (!reduce) timer = setInterval(next, 5600);
+  }
+
+  // init
+  scenes[0].classList.add("active", "enter");
+  render(0, 1, true);
+  setTimeout(() => scenes[0].classList.remove("enter"), 1300);
+  restart();
+
+  $("#next").addEventListener("click", next);
+  $("#prev").addEventListener("click", prev);
+  addEventListener("keydown", e => { if (e.key === "ArrowRight") next(); if (e.key === "ArrowLeft") prev(); });
+
+  // pause on hover / hidden tab
+  const hero = $("#hero");
+  document.addEventListener("visibilitychange", () => document.hidden ? clearInterval(timer) : restart());
+
+  // swipe
+  const stage = $("#stage"); let sx = null;
+  stage.addEventListener("pointerdown", e => { sx = e.clientX; });
+  addEventListener("pointerup", e => {
+    if (sx === null) return;
+    const dx = e.clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+
+  // subtle cinematic parallax
+  if (!reduce && matchMedia("(pointer:fine)").matches) {
+    const p = $("#parallax");
+    hero.addEventListener("mousemove", e => {
+      const r = hero.getBoundingClientRect();
+      p.style.setProperty("--mx", ((e.clientX - r.left) / r.width - .5).toFixed(3));
+      p.style.setProperty("--my", ((e.clientY - r.top) / r.height - .5).toFixed(3));
+    });
+    hero.addEventListener("mouseleave", () => { p.style.setProperty("--mx", 0); p.style.setProperty("--my", 0); });
+  }
+
+  /* ---------- Menu, coffee bar, bag, WhatsApp ---------- */
+  const WA = "79964734337"; // TODO: replace with the bakery's WhatsApp number (digits only, with country code)
+  const api = (p, b) => { try { fetch("/api/" + p, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b), keepalive: true }).catch(() => {}); } catch (e) {} };
+  const money = n => "$" + n.toFixed(2), FEE = 3.5, FREE = 25;
+  const cup = (a, b) => `<svg viewBox="0 0 200 200" aria-hidden="true"><path class="steam" d="M80 60q-10-16 0-28t0-24M104 60q-10-16 0-28t0-24M128 60q-10-16 0-28t0-24"/><ellipse cx="100" cy="176" rx="70" ry="9" fill="#5a3a26" opacity=".16"/><path d="M42 84h116l-9 62a24 24 0 0 1-24 20H75a24 24 0 0 1-24-20z" fill="#fffaf0"/><ellipse cx="100" cy="84" rx="58" ry="12" fill="${a}"/><ellipse cx="100" cy="84" rx="34" ry="6" fill="${b}"/><path d="M158 100h12a16 16 0 0 1 0 32h-16" fill="none" stroke="#fffaf0" stroke-width="9"/></svg>`;
+  const M = (window.PREMIUM_DATA && window.PREMIUM_DATA.menu) || [
+    { id: "cream", cat: "rolls", name: "Vanilla Cream Swirl", price: 6.5, tag: "Signature", img: "cream-pour", note: "A warm vanilla glaze poured over a golden, soft-centered roll.", ing: "Flour, butter, milk, cinnamon, vanilla cream", al: "Gluten, dairy, eggs" },
+    { id: "choc", cat: "rolls", name: "Chocolate Pour", price: 7, tag: "Warm", img: "choc-pour", note: "Silky milk chocolate over cinnamon dough, glazed to order.", ing: "Flour, butter, milk chocolate, cinnamon", al: "Gluten, dairy, eggs" },
+    { id: "pecan", cat: "rolls", name: "Pecan Caramel Roll", price: 7.5, tag: "New", img: "plated", note: "Toasted pecans, salted caramel and a touch of fresh mint.", ing: "Flour, butter, pecans, caramel, mint", al: "Gluten, dairy, eggs, nuts" },
+    { id: "classic", cat: "rolls", name: "Oven-Fresh Classic", price: 5.5, tag: "Daily", img: "oven", note: "Our original cinnamon roll, straight from the oven.", ing: "Flour, butter, brown sugar, cinnamon", al: "Gluten, dairy, eggs" },
+    { id: "croi", cat: "pastries", name: "Butter Croissant", price: 4, tag: "Daily", img: "pastry-croissant", z: "cover 50% 72%", note: "Shattering layers, cultured butter, baked at dawn.", ing: "Flour, cultured butter, yeast", al: "Gluten, dairy" },
+    { id: "pain", cat: "pastries", name: "Pain au Chocolat", price: 4.5, tag: "Daily", img: "pastry-pain", note: "Two bars of dark chocolate in laminated dough.", ing: "Flour, butter, dark chocolate", al: "Gluten, dairy, soy" },
+    { id: "almond", cat: "pastries", name: "Almond Pastry", price: 4.8, tag: "Favorite", img: "counter", z: "260% 90% 100%", note: "Frangipane, toasted almonds and powdered sugar.", ing: "Flour, butter, almonds, sugar", al: "Gluten, dairy, eggs, nuts" },
+    { id: "cake", cat: "pastries", name: "Strawberry Cream Slice", price: 6.5, tag: "Seasonal", img: "cake-strawberry", note: "Vanilla sponge, whipped cream and fresh strawberries.", ing: "Flour, eggs, cream, strawberries", al: "Gluten, dairy, eggs" },
+    { id: "sugar", cat: "pastries", name: "Sugar Croissant", price: 4.5, tag: "New", img: "pastry-sugar", z: "cover 50% 40%", note: "Buttery croissants rolled in crystal sugar.", ing: "Flour, butter, sugar, yeast", al: "Gluten, dairy" },
+    { id: "rais", cat: "pastries", name: "Pain aux Raisins", price: 4.6, tag: "Daily", img: "pastry-raisin", note: "Laminated dough, vanilla cream and plump raisins.", ing: "Flour, butter, raisins, cream", al: "Gluten, dairy, eggs" },
+    { id: "pist", cat: "pastries", name: "Pistachio Glaze Cake", price: 7, tag: "Seasonal", img: "cake-pistachio", z: "cover 50% 40%", note: "Soft sponge under a green pistachio glaze.", ing: "Flour, eggs, pistachio, butter", al: "Gluten, dairy, eggs, nuts" },
+    { id: "bag", cat: "bread", name: "Classic Baguette", price: 3.5, tag: "Daily", img: "bread-baguette", z: "cover 50% 18%", note: "A crisp crust and an airy, open crumb.", ing: "Flour, water, salt, yeast", al: "Gluten" },
+    { id: "toast", cat: "bread", name: "Brioche Toast Loaf", price: 6, tag: "Soft", img: "bread-toast", note: "Sliced thick for toasting, golden and tender.", ing: "Flour, butter, eggs, milk", al: "Gluten, dairy, eggs" },
+    { id: "wreath", cat: "bread", name: "Festive Brioche Wreath", price: 9.5, tag: "Seasonal", img: "bread-wreath", note: "A sweet brioche crown with a crunchy nut topping.", ing: "Flour, butter, eggs, hazelnut", al: "Gluten, dairy, eggs, nuts" },
+    { id: "sour", cat: "bread", name: "Sourdough Loaf", price: 8.5, tag: "Slow", img: "bread-sourdough", note: "Wild-yeast starter, long ferment, crackling crust.", ing: "Flour, water, salt, starter", al: "Gluten" },
+    { id: "chal", cat: "bread", name: "Braided Challah", price: 7.5, tag: "Weekend", img: "bread-challah", note: "A glossy, sesame-topped braid with a tender crumb.", ing: "Flour, eggs, honey, sesame", al: "Gluten, eggs, sesame" },
+    { id: "esp", cat: "coffee", name: "Espresso", price: 3, tag: "Classic", img: "coffee-espresso", z: "cover 50% 40%", c: ["#3b1f10", "#7a4a2a"], note: "A double shot with thick crema and a caramel finish.", ing: "Single-origin espresso blend", al: "None" },
+    { id: "ame", cat: "coffee", name: "Americano", price: 3.5, tag: "Smooth", img: "coffee-americano", c: ["#2f1a0d", "#6a3f22"], note: "Espresso stretched with hot water for a long, clean cup.", ing: "Espresso, hot water", al: "None" },
+    { id: "flat", cat: "coffee", name: "Flat White", price: 4.2, tag: "Best seller", img: "coffee-flatwhite", c: ["#8b5a35", "#f3e3c8"], note: "Velvety microfoam over a double ristretto.", ing: "Espresso, steamed milk", al: "Dairy" },
+    { id: "capp", cat: "coffee", name: "Cappuccino", price: 4.2, tag: "Classic", img: "coffee-cappuccino", c: ["#9a6a40", "#fbf1dc"], note: "Equal parts espresso, milk and airy foam, dusted with cocoa.", ing: "Espresso, steamed milk, foam", al: "Dairy" },
+    { id: "lat", cat: "coffee", name: "Café Latte", price: 4.8, tag: "Silky", img: "coffee-latte", c: ["#a86f3e", "#e9c48c"], note: "A long, silky latte with a swirl of milk art.", ing: "Espresso, steamed milk", al: "Dairy" },
+    { id: "mac", cat: "coffee", name: "Iced Macchiato", price: 5, tag: "New", img: "coffee-macchiato", c: ["#a0693a", "#f1dcbc"], note: "Espresso poured over ice and cold milk, layered by hand.", ing: "Espresso, milk, ice", al: "Dairy" },
+    { id: "ice", cat: "coffee", name: "Iced Latte", price: 4.8, tag: "Chilled", img: "coffee-icedlatte", c: ["#b07a4a", "#f6e6cc"], note: "Cold milk and espresso swirled over ice.", ing: "Espresso, milk, ice", al: "Dairy" },
+    { id: "cort", cat: "coffee", name: "Cortado", price: 3.8, tag: "Short", img: "coffee-cortado", c: ["#6b3d20", "#e3c08c"], note: "Espresso cut with warm milk, served in a small glass.", ing: "Espresso, steamed milk", al: "Dairy" },
+    { id: "icc", cat: "coffee", name: "Iced Cream Coffee", price: 5.2, tag: "Chilled", img: "coffee-icedcream", c: ["#a0693a", "#f1dcbc"], note: "Cold coffee over ice with a ribbon of cream.", ing: "Coffee, cream, ice", al: "Dairy" },
+    { id: "cold", cat: "coffee", name: "Cold Brew", price: 4.5, tag: "Chilled", img: "coffee-coldbrew", c: ["#2a160b", "#5a3320"], note: "Steeped for 18 hours, smooth and low in acidity.", ing: "Coffee, filtered water", al: "None" },
+    { id: "hot", cat: "coffee", name: "Hot Chocolate", price: 4.5, tag: "Cozy", img: "coffee-hotchocolate", c: ["#5a2e1a", "#c58b5c"], note: "Dark chocolate melted into steamed milk, finished with cream.", ing: "Dark chocolate, milk, cream", al: "Dairy" }
+  ];
+  const byId = id => M.find(p => p.id === id);
+  const art = p => `<div class="art" data-src="${p.img}"${p.z ? ` data-z="${p.z}"` : ""}>${p.c ? cup(...p.c) : ""}</div>`;
+  function paint(root) {
+    $$(".art[data-src]", root).forEach(el => {
+      const n = el.dataset.src, ex = [".webp", ".jpg", ".jpeg", ".png"]; el.removeAttribute("data-src");
+      (function t(i) {
+        if (i >= ex.length) return; const im = new Image();
+        im.onload = () => { el.style.backgroundImage = `url(assets/${n + ex[i]})`; if (el.dataset.z) { const z = el.dataset.z.split(" "); el.style.backgroundSize = z[0]; el.style.backgroundPosition = z[1] + " " + z[2]; } el.innerHTML = ""; };
+        im.onerror = () => t(i + 1); im.src = "assets/" + n + ex[i];
+      })(0);
+    });
+  }
+
+  let cat = "all", qv = "", mode = "delivery", disc = 0, sel = null;
+  const cart = {}; try { Object.assign(cart, JSON.parse(localStorage.getItem("premium-cart") || "{}")); } catch (e) {}
+  const bagCount = $("#bagCount"), toast = $("#toast"), dr = $("#drawer"), scrim = $("#scrim"), modal = $("#modal"), mbox = $("#mbox"); let tt;
+  const say = m => { toast.textContent = m; toast.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("on"), 2200); };
+  const toggle = o => { dr.classList.toggle("open", o); scrim.classList.toggle("on", o); };
+
+  $("#tabs").innerHTML = ["all", "rolls", "pastries", "bread", "coffee"].map(c => `<button data-cat="${c}" class="${c === "all" ? "on" : ""}">${c}</button>`).join("");
+  function renderMenu() {
+    const list = M.filter(p => (cat === "all" || p.cat === cat) && (p.name + " " + p.note).toLowerCase().includes(qv));
+    $("#cards").innerHTML = list.length ? list.map((p, i) => `
+      <article class="card" style="animation-delay:${i * 50}ms">
+        <div class="card-art" data-open="${p.id}">${art(p)}<span class="pill">${p.tag}</span></div>
+        <h3>${p.name}</h3><p>${p.note}</p>
+        <div class="card-foot"><span class="price">${money(p.price)}</span><button class="add" data-add="${p.id}">${p.cat === "coffee" ? "Customize" : "Add to bag"}</button></div>
+      </article>`).join("") : `<p class="none">Nothing matches your search.</p>`;
+    paint($("#cards")); fillGrid();
+  }
+  /* complete the last row of the menu grid with a banner instead of empty cells */
+  function fillGrid() {
+    const g = $("#cards"); $$(".filler", g).forEach(f => f.remove());
+    const n = $$(".card", g).length; if (!n) return;
+    const cols = getComputedStyle(g).gridTemplateColumns.split(" ").length, rem = n % cols; if (cols < 2 || !rem) return;
+    const cf = cat === "coffee";
+    g.insertAdjacentHTML("beforeend", `<div class="filler" style="grid-column:span ${cols - rem};background-image:linear-gradient(90deg,rgba(34,20,12,.85),rgba(34,20,12,.3)),url(assets/${cf ? "coffee-roll" : "choc-pour"}.webp)"><div><h3>${cf ? "Pair it with a warm roll" : "Can’t decide?"}</h3><p>${cf ? "Each coffee is matched with the roll it loves most." : "Build a box of 4, 6 or 12 with your favorite sauce and toppings."}</p><a class="btn" href="${cf ? "#coffee" : "#build"}">${cf ? "See the pairs" : "Build your box"}</a></div></div>`);
+  }
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(fillGrid, 150); });
+  $("#q").addEventListener("input", e => { qv = e.target.value.trim().toLowerCase(); renderMenu(); });
+  const cardsEl = $("#cards");
+  cardsEl.addEventListener("pointermove", e => { if (reduce) return; const a = e.target.closest(".card-art"); if (!a) return; const r = a.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; a.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`; });
+  cardsEl.addEventListener("pointerout", e => { const a = e.target.closest(".card-art"); if (a) a.style.transform = ""; });
+
+  const PAIRS = [["cream", "flat"], ["choc", "esp"], ["pecan", "cold"]];
+  $("#pairs").innerHTML = PAIRS.map((pr, i) => { const a = byId(pr[0]), b = byId(pr[1]); return `<div class="pair reveal"><div class="pt"><div class="pa">${art(a)}</div><div class="pa">${art(b)}</div></div><h3>${a.name} <em>+</em> ${b.name}</h3><p>${money(a.price + b.price)} together</p><button class="btn" data-pair="${i}">Add the pair</button></div>`; }).join("");
+  paint($("#pairs"));
+  $("#seeCoffee").addEventListener("click", () => { cat = "coffee"; $$("#tabs button").forEach(b => b.classList.toggle("on", b.dataset.cat === cat)); renderMenu(); $("#pastries").scrollIntoView({ behavior: "smooth" }); });
+
+  let fromEl = null;
+  function fly(el) {
+    if (!el || reduce) return; const r = el.getBoundingClientRect(), b = $("#bagBtn").getBoundingClientRect(), a = $(".art", el), d = document.createElement("div");
+    d.className = "fly"; d.style.cssText = `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;background-image:${a ? getComputedStyle(a).backgroundImage : "none"}`;
+    document.body.appendChild(d);
+    requestAnimationFrame(() => { d.style.transform = `translate(${b.left + b.width / 2 - r.left - r.width / 2}px,${b.top + b.height / 2 - r.top - r.height / 2}px) scale(.08)`; d.style.opacity = ".25"; });
+    setTimeout(() => d.remove(), 850);
+  }
+  function add(key, p, price, label) {
+    const c = cart[key] || (cart[key] = { p, price, label, qty: 0 }); c.qty++; draw(); fly(fromEl); say(p.name + " added to your bag");
+  }
+  function draw() {
+    const ks = Object.keys(cart), n = ks.reduce((s, k) => s + cart[k].qty, 0), t = ks.reduce((s, k) => s + cart[k].qty * cart[k].price, 0), d = t * disc, fee = mode === "delivery" && t > 0 && t - d < FREE ? FEE : 0;
+    bagCount.textContent = n; bagCount.classList.toggle("on", n > 0); bagCount.classList.remove("pop"); void bagCount.offsetWidth; bagCount.classList.add("pop");
+    $("#dList").innerHTML = ks.length ? ks.map(k => `<li><div class="t">${art(cart[k].p)}</div><div><b>${cart[k].p.name}</b><span>${cart[k].label ? cart[k].label + " · " : ""}${money(cart[k].price)}</span></div><div class="qty"><button data-q="${k}" data-d="-1" aria-label="Less">−</button><em>${cart[k].qty}</em><button data-q="${k}" data-d="1" aria-label="More">+</button></div></li>`).join("") : `<li class="empty">Your bag is empty. The rolls are waiting.</li>`;
+    paint($("#dList"));
+    $("#dSub").textContent = money(t); $("#dDisc").textContent = d ? "−" + money(d) : money(0);
+    $("#dFee").textContent = mode === "pickup" ? "Pick-up" : (t > 0 && fee === 0 ? "Free" : money(fee));
+    $("#dHint").textContent = mode === "delivery" && t > 0 && t - d < FREE ? "Add " + money(FREE - (t - d)) + " more for free delivery" : "";
+    $("#dTot").textContent = money(t - d + fee);
+    $("#dUp").innerHTML = ks.length && !ks.some(k => cart[k].p.cat === "coffee") ? `<button class="upsell" data-quick="flat">+ Add a Flat White to go with it · ${money(4.2)}</button>` : "";
+    try { localStorage.setItem("premium-cart", JSON.stringify(cart)); } catch (e) {}
+  }
+
+  function openItem(id) {
+    sel = byId(id);
+    const opt = (nm, arr, def) => `<fieldset class="chips"><legend>${nm}</legend>${arr.map((x, i) => `<label><input type="radio" name="${nm}" value="${x[1]}" data-l="${x[0]}"${i === def ? " checked" : ""}><span>${x[0]}${x[1] ? " +$" + x[1].toFixed(2) : ""}</span></label>`).join("")}</fieldset>`;
+    mbox.innerHTML = `<button class="mx" data-close aria-label="Close">×</button><div class="mart">${art(sel)}</div><div class="mtxt"><h3>${sel.name}</h3><p>${sel.note}</p><small><b>Ingredients</b> ${sel.ing}<br><b>Allergens</b> ${sel.al}</small>${sel.cat === "coffee" ? opt("Size", [["Small", -.5], ["Medium", 0], ["Large", .7]], 1).replace("+$-0.50", "−$0.50") + opt("Milk", [["Whole", 0], ["Oat", .6], ["Almond", .6]], 0) : ""}<div class="mfoot"><b id="mP">${money(sel.price)}</b><button class="btn" id="mAdd">Add to bag</button></div></div>`;
+    paint(mbox); modal.classList.add("on");
+  }
+  mbox.addEventListener("change", () => { $("#mP").textContent = money(sel.price + $$("input:checked", mbox).reduce((s, i) => s + +i.value, 0)); });
+
+  function track() {
+    const st = ["Order received", "Dough in the oven", "Boxed with a ribbon", mode === "delivery" ? "On its way" : "Ready at the counter"];
+    mbox.innerHTML = `<button class="mx" data-close aria-label="Close">×</button><div class="mtxt trk"><h3>Order #${Math.floor(1000 + Math.random() * 9000)}</h3><p>Demo tracking. We will confirm your order on WhatsApp.</p><ol>${st.map(x => `<li>${x}</li>`).join("")}</ol></div>`;
+    modal.classList.add("on"); const li = $$(".trk li"); let i = 0; li[0].classList.add("done");
+    const iv = setInterval(() => { i++; if (i >= li.length || !modal.classList.contains("on")) return clearInterval(iv); li[i].classList.add("done"); }, 2500);
+  }
+
+  document.addEventListener("click", e => {
+    const t = e.target, g = s => t.closest(s);
+    fromEl = (g(".card") && $(".card-art", g(".card"))) || (g(".pair") && $(".pa", g(".pair"))) || (g(".deal") && $(".deal-art", g(".deal"))) || (g("#modal") && $(".mart", modal)) || null;
+    if (t === modal || g("[data-close]")) modal.classList.remove("on");
+    let x;
+    if ((x = g("[data-cat]"))) { cat = x.dataset.cat; $$("#tabs button").forEach(b => b.classList.toggle("on", b === x)); renderMenu(); }
+    if ((x = g("[data-open]"))) openItem(x.dataset.open);
+    if ((x = g("[data-add]"))) { const p = byId(x.dataset.add); p.cat === "coffee" ? openItem(p.id) : add(p.id + "|", p, p.price, ""); }
+    if ((x = g("[data-quick]"))) { const p = byId(x.dataset.quick); add(p.id + "|Medium, Whole", p, p.price, "Medium, Whole"); }
+    if ((x = g("[data-deal]"))) { const d = DEALS[x.dataset.deal]; add("deal|" + d.id, { name: d.name, img: d.img, z: d.z, cat: d.cat }, d.now, "Deal"); }
+    if ((x = g("[data-pair]"))) PAIRS[x.dataset.pair].forEach(id => { const p = byId(id); add(p.id + "|" + (p.cat === "coffee" ? "Medium, Whole" : ""), p, p.price, p.cat === "coffee" ? "Medium, Whole" : ""); });
+    if ((x = g("[data-q]"))) { const k = x.dataset.q; cart[k].qty += +x.dataset.d; if (cart[k].qty < 1) delete cart[k]; draw(); }
+    if (g("#mAdd")) { const ins = $$("input:checked", mbox), ex = ins.reduce((s, i) => s + +i.value, 0), lab = ins.map(i => i.dataset.l).join(", "); add(sel.id + "|" + lab, sel, sel.price + ex, lab); modal.classList.remove("on"); }
+  });
+  $("#bagBtn").addEventListener("click", () => toggle(true));
+  $("#dClose").addEventListener("click", () => toggle(false));
+  scrim.addEventListener("click", () => toggle(false));
+  addEventListener("keydown", e => { if (e.key === "Escape") { toggle(false); modal.classList.remove("on"); } });
+  $("#pApply").addEventListener("click", () => { const ok = $("#promo").value.trim().toUpperCase() === "WELCOME10"; disc = ok ? .1 : 0; say(ok ? "WELCOME10 applied: 10% off" : "Invalid promo code"); draw(); });
+  $("#checkout").addEventListener("click", () => {
+    const ks = Object.keys(cart); if (!ks.length) return say("Add something delicious first");
+    const ad = $("#addr").value.trim(); if (mode === "delivery" && !ad) return say("Please enter your delivery address");
+    const lines = ks.map(k => `• ${cart[k].qty}× ${cart[k].p.name}${cart[k].label ? " (" + cart[k].label + ")" : ""}`).join("\n");
+    const msg = `Hello Premium! New order:\n${lines}\n${mode === "delivery" ? "Delivery to: " + ad : "Pick-up"}\nTotal: ${$("#dTot").textContent}`;
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank");
+    api("orders", { mode, address: ad, promo: disc ? $("#promo").value.trim() : "", lang, clientTotal: parseFloat($("#dTot").textContent.replace(/[^0-9.]/g, "")) || null, items: ks.map(k => ({ key: k, qty: cart[k].qty, price: cart[k].price, label: cart[k].label, name: cart[k].p.name })) });
+    ks.forEach(k => delete cart[k]); disc = 0; draw(); toggle(false); track();
+  });
+  $(".chat").addEventListener("click", () => window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(lang === "ar" ? "مرحباً بريميوم! أحتاج مساعدة." : "Hello Premium! I need some help."), "_blank", "noopener"));
+  $("#mWa").href = $("#vWa").href = "https://wa.me/" + WA;
+
+  /* ---------- Account (e-mail sign-up, avatar in the header) ---------- */
+  const acctBtn = $("#acctBtn"), ACCT_ICON = acctBtn.innerHTML; let me = null;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const avatar = (u, big) => u.avatar ? `<img class="av${big ? " big" : ""}" src="${u.avatar}" alt="">` : `<span class="av${big ? " big" : ""}" data-noi18n>${esc(u.name.trim().charAt(0).toUpperCase())}</span>`;
+  const paintAcct = () => { acctBtn.innerHTML = me ? avatar(me) : ACCT_ICON; };
+  const authCall = async (method, path, body) => {
+    const r = await fetch("/api/auth/" + path, { method, headers: body ? { "Content-Type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined, credentials: "same-origin" });
+    let data = null; try { data = await r.json(); } catch (e) {}
+    return { ok: r.ok, data };
+  };
+  const AUTH_ERR = { email_taken: "This email is already registered. Try signing in.", invalid_credentials: "Wrong email or password.", validation: "Please check your details. The password needs 8+ characters.", too_many_attempts: "Too many attempts. Try again in a few minutes." };
+  const close = '<button class="mx" data-close aria-label="Close">×</button>';
+  const authView = (up, pre) => {
+    mbox.innerHTML = `${close}<div class="acc"><h3>Welcome to Premium</h3><div class="atabs"><button type="button" data-auth="in" class="${up ? "" : "on"}">Sign in</button><button type="button" data-auth="up" class="${up ? "on" : ""}">Create account</button></div>
+      <form id="authForm" data-mode="${up ? "up" : "in"}">${up ? '<input name="uname" required maxlength="80" autocomplete="name" placeholder="Your name" aria-label="Name">' : ""}<input name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Your email" aria-label="Email" value="${pre && pre.email ? esc(pre.email) : ""}"><input name="password" type="password" required minlength="${up ? 8 : 1}" maxlength="72" autocomplete="${up ? "new-password" : "current-password"}" placeholder="${up ? "Password (8+ characters)" : "Password"}" aria-label="Password"><button class="btn" type="submit">${up ? "Create account" : "Sign in"}</button><div class="err" role="alert">${pre && pre.msg ? pre.msg : ""}</div></form></div>`;
+  };
+  const meView = () => {
+    mbox.innerHTML = `${close}<div class="acc"><div class="me">${avatar(me, true)}<h3 data-noi18n>${esc(me.name)}</h3><p data-noi18n>${esc(me.email)}</p></div><label class="btn btn-ghost">Change photo<input type="file" id="avFile" accept="image/*" hidden></label>${me.avatar ? '<button class="btn btn-ghost" id="avDel" type="button">Remove photo</button>' : ""}<button class="btn" id="signOut" type="button">Sign out</button></div>`;
+    $("#avFile").addEventListener("change", e => {
+      e.stopPropagation(); const f = e.target.files[0]; if (!f) return;
+      const img = new Image(), url = URL.createObjectURL(f);
+      img.onload = () => { const c = document.createElement("canvas"), s = 128, m = Math.min(img.width, img.height); c.width = c.height = s; c.getContext("2d").drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, s, s); URL.revokeObjectURL(url); setAvatar(c.toDataURL("image/jpeg", 0.85)); };
+      img.onerror = () => say("Could not read that image"); img.src = url;
+    });
+  };
+  const setAvatar = async data => {
+    try { const r = await authCall("PUT", "avatar", { avatar: data }); if (!r.ok) throw 0; me.avatar = data; paintAcct(); meView(); say(data ? "Photo updated ✦" : "Photo removed"); }
+    catch (e) { say("Something went wrong. Please try again."); }
+  };
+  acctBtn.addEventListener("click", () => { me ? meView() : authView(false); modal.classList.add("on"); });
+  mbox.addEventListener("click", async e => {
+    const t = e.target.closest("[data-auth],#signOut,#avDel"); if (!t) return;
+    if (t.dataset.auth) return authView(t.dataset.auth === "up");
+    if (t.id === "avDel") return setAvatar(null);
+    try { await authCall("POST", "logout"); } catch (x) {}
+    me = null; paintAcct(); modal.classList.remove("on"); say("Signed out");
+  });
+  mbox.addEventListener("submit", async e => {
+    if (e.target.id !== "authForm") return; e.preventDefault();
+    const f = e.target, err = $(".err", f), up = f.dataset.mode === "up", btn = $("button[type=submit]", f);
+    err.textContent = ""; btn.disabled = true;
+    try {
+      const body = { email: f.email.value.trim(), password: f.password.value }; if (up) body.name = f.uname.value.trim();
+      const r = await authCall("POST", up ? "register" : "login", body);
+      if (r.ok) { me = r.data; paintAcct(); modal.classList.remove("on"); say(up ? "Account created ✦" : "Welcome back ✦"); }
+      else if (up && r.data && r.data.error === "email_taken") { authView(false, { email: body.email, msg: AUTH_ERR.email_taken }); $("input[name=password]", mbox).focus(); }
+      else err.textContent = AUTH_ERR[r.data && r.data.error] || "Something went wrong. Please try again.";
+    } catch (x) { err.textContent = "Account service is not available right now."; }
+    btn.disabled = false;
+  });
+  authCall("GET", "me").then(r => { if (r.ok) { me = r.data; paintAcct(); } }).catch(() => {});
+
+  /* custom box builder */
+  const sauceImg = { cream: "cream-pour", choc: "choc-pour", caramel: "plated", none: "swirl-dough" };
+  function bCalc() {
+    const f = $("#build"); let t = +$("input[name=bs]:checked", f).value + $$("input[name=tp]:checked", f).length;
+    $("#bTot").textContent = money(t); $("#bPrev").src = "assets/" + $("input[name=sc]:checked", f).dataset.img + ".webp"; return t;
+  }
+  $("#build").addEventListener("change", bCalc); bCalc();
+  $("#bAdd").addEventListener("click", () => {
+    const f = $("#build"), t = bCalc(), sc = $("input[name=sc]:checked", f), note = $("#bNote").value.trim();
+    const lab = [$("input[name=bs]:checked", f).dataset.l, sc.dataset.l, ...$$("input[name=tp]:checked", f).map(i => i.dataset.l)].join(", ") + (note ? ` · “${note}”` : "");
+    add("box|" + lab, { name: "Custom roll box", img: sauceImg[sc.value], cat: "rolls" }, t, lab);
+  });
+
+  /* reviews */
+  const RV = [["Sara M.", "The cream pour roll is unreal. Still warm when it arrived at my door."], ["Daniel K.", "The best flat white in the neighborhood, and the pecan caramel roll is dangerous."], ["Layla A.", "We booked a table for my sister's birthday. Lovely place, lovely staff."], ["Omar H.", "Ordered a box of six as a gift. The ribbon and the note made her day."]];
+  let ri = 0; const rv = $("#rev");
+  function showR(i) { ri = i; rv.classList.remove("in"); setTimeout(() => { rv.innerHTML = `<div class="stars">★★★★★</div><blockquote>“${RV[i][1]}”</blockquote><cite>${RV[i][0]}</cite>`; rv.classList.add("in"); $$("#rdots i").forEach((d, k) => d.classList.toggle("on", k === i)); }, reduce ? 0 : 350); }
+  $("#rdots").innerHTML = RV.map(() => "<i></i>").join(""); showR(0); setInterval(() => showR((ri + 1) % RV.length), 5500);
+
+  const SZ = [-.5, 0, .7], by = c => M.filter(p => p.cat === c);
+  const row = (p, i, cols) => `<div class="r" data-open="${p.id}" style="--i:${i}"><span class="n">${p.name}</span><i></i>${cols.map(d => `<b>${(p.price + d).toFixed(2)}</b>`).join("")}</div>`;
+  const board = (title, groups, foot, sizes) => `<div class="board reveal"><div class="bd"><h3>${title}</h3>${sizes ? `<div class="r h"><span class="n"></span><i></i><b>S</b><b>M</b><b>L</b></div>` : ""}${groups.map(g => (g.t ? `<h4>${g.t}</h4>` : "") + g.l.map((p, i) => row(p, i, sizes ? SZ : [0])).join("")).join("")}<p class="foot">${foot}</p></div></div>`;
+  $("#boards").innerHTML = board("Espresso Bar", [{ l: by("coffee") }], "Oat or almond milk +0.60", true)
+    + board("Cinnamon Rolls", [{ l: by("rolls") }], "Boxes of 4, 6 or 12. Build yours below", false)
+    + board("Pastry &amp; Bread", [{ t: "Pastries", l: by("pastries") }, { t: "Bread", l: by("bread") }], "Baked fresh every morning", false);
+
+  const DEALS = (window.PREMIUM_DATA && window.PREMIUM_DATA.deals) || [
+    { id: "d1", name: "Morning Pair", desc: "Vanilla Cream Swirl + Flat White", was: 10.7, now: 9.5, img: "cream-pour", cat: "coffee" },
+    { id: "d2", name: "Box of Six", desc: "Six rolls, any sauce", was: 34, now: 30, img: "choc-pour", cat: "rolls" },
+    { id: "d3", name: "Breakfast for Two", desc: "2 butter croissants + 2 flat whites", was: 16.8, now: 14.5, img: "pastry-croissant", z: "cover 50% 72%", cat: "coffee" },
+    { id: "d4", name: "Iced Duo", desc: "Two iced lattes to share", was: 9.6, now: 8, img: "coffee-icedlatte", cat: "coffee" }
+  ];
+  $("#deals").innerHTML = DEALS.map((d, i) => `<article class="deal" style="animation-delay:${i * 80}ms"><div class="deal-art">${art(d)}</div><span class="save">−${Math.round((1 - d.now / d.was) * 100)}%</span><div class="deal-b"><h3>${d.name}</h3><p>${d.desc}</p><div class="deal-f"><span class="now">${money(d.now)}<s>${money(d.was)}</s></span><button class="add" data-deal="${i}">Add deal</button></div></div></article>`).join("");
+  paint($("#deals"));
+  (function tick() { const n = new Date(), e = new Date(n); e.setHours(24, 0, 0, 0); const sec = Math.floor((e - n) / 1000), p = v => String(v).padStart(2, "0"); $("#cd").textContent = `${p(Math.floor(sec / 3600))}:${p(Math.floor(sec % 3600 / 60))}:${p(sec % 60)}`; setTimeout(tick, 1000); })();
+  $("#copyCode").addEventListener("click", () => { $("#promo").value = "WELCOME10"; $("#pApply").click(); toggle(true); });
+
+  renderMenu(); draw();
+
+  /* ---------- Header: scroll state, mobile menu, current link ---------- */
+  const header = $(".site-header"), nav = $("#nav"), burger = $(".burger");
+  const onScroll = () => header.classList.toggle("scrolled", scrollY > 10);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); });
+  $$("a", nav).forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); }));
+
+  const links = $$("a", nav);
+  const sectionIO = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) links.forEach(l => l.classList.toggle("is-current", l.getAttribute("href") === "#" + en.target.id));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  ["offers", "pastries", "coffee", "craft", "bakery", "reserve", "story"].forEach(id => sectionIO.observe(document.getElementById(id)));
+
+  /* ---------- Reveal on scroll ---------- */
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: .15 });
+  $$(".reveal").forEach(el => io.observe(el));
+
+  /* ---------- v2: loader, progress, parallax, counters, live status, flour ---------- */
+  const ld = $("#loader"), hide = () => setTimeout(() => ld.classList.add("done"), reduce ? 0 : 900);
+  document.readyState === "complete" ? hide() : addEventListener("load", hide); setTimeout(() => ld.classList.add("done"), 3500);
+
+  const pbar = $("#progress"), px = $$("[data-speed]");
+  function onFrame() {
+    pbar.style.transform = `scaleX(${scrollY / ((document.documentElement.scrollHeight - innerHeight) || 1)})`;
+    if (!reduce) px.forEach(el => { const r = el.getBoundingClientRect(); el.style.setProperty("--py", ((r.top + r.height / 2 - innerHeight / 2) * el.dataset.speed).toFixed(1) + "px"); });
+  }
+  addEventListener("scroll", onFrame, { passive: true }); onFrame();
+
+  const mq = $("#mq > div"); mq.innerHTML += mq.innerHTML;
+
+  const cio = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return; cio.unobserve(en.target);
+    const n = +en.target.dataset.n, t0 = performance.now();
+    (function f(t) { const p = Math.min(1, (t - t0) / 1600); en.target.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); })(t0);
+  }), { threshold: .6 });
+  $$("[data-n]").forEach(el => cio.observe(el));
+
+  const hr = new Date().getHours(), pct = Math.min(96, Math.max(12, (hr - 6) * 8));
+  $("#claimed").textContent = pct + "%"; $(".batch").style.setProperty("--w", pct + "%");
+
+  const sched = [[8, 15], [7, 18], [7, 18], [7, 18], [7, 18], [7, 18], [8, 19]], now = new Date(), [oh, ch] = sched[now.getDay()], hh = now.getHours() + now.getMinutes() / 60, isOpen = hh >= oh && hh < ch;
+  $("#status").innerHTML = `<i class="${isOpen ? "on" : ""}"></i>${isOpen ? "Open now, until " + ch + ":00" : "Closed right now"}`;
+
+
+  $("#news").addEventListener("submit", e => { e.preventDefault(); api("newsletter", { email: e.target.querySelector("input").value.trim() }); e.target.reset(); say("Welcome to the Premium family ✦"); });
+
+  if (!reduce) {
+    const cv = $("#flour"), cx = cv.getContext("2d"); let W, H;
+    const rs = () => { W = cv.width = hero.clientWidth; H = cv.height = hero.clientHeight; }; rs(); addEventListener("resize", rs);
+    const ps = Array.from({ length: 46 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2.2 + .6, v: Math.random() * .35 + .1, s: Math.random() * 6 }));
+    (function f() {
+      cx.clearRect(0, 0, W, H);
+      ps.forEach(p => { p.y -= p.v; p.s += .01; p.x += Math.sin(p.s) * .4; if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
+        cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 7); cx.fillStyle = p.r > 1.8 ? "rgba(184,146,74,.3)" : "rgba(255,255,255,.9)"; cx.fill(); });
+      requestAnimationFrame(f);
+    })();
+  }
+
+  /* ---------- v3: reservation, delivery shortcut, today's hours ---------- */
+  $("#orderNow").addEventListener("click", () => toggle(true));
+  document.addEventListener("click", e => {
+    const m = e.target.closest("[data-mode]"); if (!m) return;
+    mode = m.dataset.mode; $$("[data-mode]").forEach(b => b.classList.toggle("on", b === m));
+    $("#addr").hidden = mode !== "delivery"; draw();
+  });
+  $$(".hours li")[now.getDay() === 0 ? 2 : now.getDay() === 6 ? 1 : 0].classList.add("today");
+  const rDate = $("#rDate"), rTime = $("#rTime");
+  rDate.min = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+  $("#rG").innerHTML = [1,2,3,4,5,6,7,8].map(n => `<option>${n}</option>`).join("");
+  function slots() {
+    const d = rDate.value ? new Date(rDate.value + "T12:00") : new Date(), [o, c] = sched[d.getDay()];
+    rTime.innerHTML = ""; for (let t = o; t < c - .5; t += .5) rTime.innerHTML += `<option>${String(Math.floor(t)).padStart(2, "0")}:${t % 1 ? "30" : "00"}</option>`;
+  }
+  slots(); rDate.addEventListener("change", slots);
+  $("#rform").addEventListener("submit", e => {
+    e.preventDefault(); const f = e.target, ok = $("#rOk");
+    api("reservations", { name: $("[name=n]", f).value.trim(), phone: $("[name=p]", f).value.trim(), date: rDate.value, time: rTime.value, guests: +$("#rG").value, type: $("#rType").value });
+    ok.hidden = false; ok.textContent = `Thank you, ${$("[name=n]", f).value.trim()}. ${$("#rType").value} for ${$("#rG").value} on ${rDate.value} at ${rTime.value} is confirmed (demo).`;
+    ok.insertAdjacentHTML("beforeend", ` <a class="wal" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent("Hello Premium! " + ok.textContent)}">Send on WhatsApp</a>`); say("Reservation confirmed ✦");
+  });
+
+  /* lightbox */
+  document.body.insertAdjacentHTML("beforeend", '<div class="lb" id="lb"><img alt=""><button aria-label="Close">×</button></div>');
+  const lb = $("#lb");
+  document.addEventListener("click", e => {
+    if (e.target.closest("#lb")) return lb.classList.remove("on");
+    const st = e.target.closest(".stack"), im = st ? $(".stack img.on") : e.target.closest(".story-img img,.cmosaic img,.sig-img img,.bakery-art img,.build-img img,.cimg,.split img");
+    if (im) { $("img", lb).src = im.src; lb.classList.add("on"); }
+  });
+  addEventListener("keydown", e => e.key === "Escape" && lb.classList.remove("on"));
+  /* sticky storytelling */
+  const chs = $$(".chap"), simgs = $$(".stack img"), cnt = $(".count");
+  function chap() {
+    let best = 0, bd = 1e9; chs.forEach((c, i) => { const r = c.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - innerHeight / 2); if (d < bd) { bd = d; best = i; } });
+    chs.forEach((c, i) => c.classList.toggle("on", i === best)); simgs.forEach((m, i) => m.classList.toggle("on", i === best)); cnt.textContent = "0" + (best + 1) + " / 0" + chs.length;
+  }
+  addEventListener("scroll", chap, { passive: true }); chap();
+
+  /* ---------- i18n: English / Arabic (RTL) ---------- */
+  const AR = {
+    "Sign in":"تسجيل الدخول","Create account":"إنشاء حساب","Welcome to Premium":"أهلاً بك في بريميوم","Your name":"اسمك","Password":"كلمة المرور","Password (8+ characters)":"كلمة المرور (8 أحرف أو أكثر)","Sign out":"تسجيل الخروج","Change photo":"تغيير الصورة","Remove photo":"حذف الصورة","Account created ✦":"تم إنشاء الحساب ✦","Welcome back ✦":"أهلاً بعودتك ✦","Signed out":"تم تسجيل الخروج","Photo updated ✦":"تم تحديث الصورة ✦","Photo removed":"تم حذف الصورة","Could not read that image":"تعذّر قراءة الصورة","This email is already registered. Try signing in.":"هذا البريد مسجّل بالفعل. جرّب تسجيل الدخول.","Wrong email or password.":"البريد الإلكتروني أو كلمة المرور غير صحيحة.","Please check your details. The password needs 8+ characters.":"تحقق من بياناتك. كلمة المرور تحتاج 8 أحرف على الأقل.","Too many attempts. Try again in a few minutes.":"محاولات كثيرة. حاول بعد دقائق.","Account service is not available right now.":"خدمة الحساب غير متاحة حاليًا.","Something went wrong. Please try again.":"حدث خطأ. حاول مرة أخرى.","Moscow, next to the metro":"موسكو، بجوار المترو",
+    "Premium":"بريميوم","Premium Boulangerie":"بريميوم بولانجري","BOULANGERIE":"مخبز",
+    "Sara M.":"سارة م.","Daniel K.":"دانيال ك.","Layla A.":"ليلى أ.","Omar H.":"عمر هـ.","Custom roll box":"علبة الرولز المخصّصة",
+    "Premium — home":"بريميوم — الرئيسية","Open menu":"افتح القائمة","Primary":"التنقل الرئيسي","Language":"اللغة","Account":"الحساب","Bag":"السلة","Featured pastries":"معجنات مميّزة","Next slide":"الشريحة التالية","Previous slide":"الشريحة السابقة","Slides":"الشرائح","Chat with us":"تحدّث معنا","Quick actions":"إجراءات سريعة","Close":"إغلاق","Less":"أقل","More":"أكثر","S":"ص","M":"و","L":"ك",
+    "Can’t decide?":"محتار؟","Build a box of 4, 6 or 12 with your favorite sauce and toppings.":"صمّم علبة من 4 أو 6 أو 12 بصوصك وإضافاتك المفضّلة.","Pair it with a warm roll":"قدّمها مع رول دافئ","Each coffee is matched with the roll it loves most.":"كل قهوة مقترنة بالرول الأنسب لها.","See the pairs":"شاهد الأزواج","Menu":"القائمة","Offers":"العروض","Coffee":"القهوة","Craft":"الحِرفة","Bakery":"المخبز","Reserve":"الحجز","Story":"قصتنا","Shop more":"تسوّق الآن","See the craft":"اكتشف الحِرفة",
+    "Small batch":"دفعات صغيرة","Slow rise":"تخمير بطيء","Cultured butter":"زبدة مُستنبتة","Baked at dawn":"تُخبز عند الفجر","Rolled by hand":"تُلفّ باليد","Warm from the oven":"دافئة من الفرن",
+    "Today's offers":"عروض اليوم","Fresh deals every morning. They end at midnight.":"عروض جديدة كل صباح، وتنتهي عند منتصف الليل.","Ends in":"تنتهي خلال","WELCOME10 · −10%":"WELCOME10 · خصم 10%","Add deal":"أضف العرض","Deal":"عرض",
+    "Morning Pair":"ثنائي الصباح","Box of Six":"علبة الستة","Breakfast for Two":"فطور لشخصين","Iced Duo":"ثنائي مثلّج","Six rolls, any sauce":"ستة رولز بأي صوص","Two iced lattes to share":"اثنان لاتيه مثلّج للمشاركة","2 butter croissants":"2 كرواسون زبدة","2 flat whites":"2 فلات وايت",
+    "Rolled by hand, baked until golden":"تُلفّ باليد وتُخبز حتى تذهّب","Rolls, pastries, bread and a full coffee bar, made every morning. When they are gone, they are gone.":"رولز ومعجنات وخبز وبار قهوة كامل، نصنعها كل صباح. وإذا نفدت فقد نفدت.",
+    "Search the menu":"ابحث في القائمة","all":"الكل","rolls":"رولز","pastries":"معجنات","bread":"خبز","coffee":"قهوة","Customize":"خصّص","Add to bag":"أضف للسلة","Nothing matches your search.":"لا يوجد ما يطابق بحثك.",
+    "Today's board":"سبورة اليوم","Written fresh every morning. Tap any line for details and sizes, and to add it to your bag.":"تُكتب طازجة كل صباح. اضغط على أي سطر لرؤية التفاصيل والأحجام وإضافته للسلة.",
+    "Espresso Bar":"بار الإسبريسو","Cinnamon Rolls":"رولز القرفة","Pastry & Bread":"معجنات وخبز","Pastries":"معجنات","Bread":"خبز","Oat or almond milk +0.60":"حليب شوفان أو لوز +0.60","Boxes of 4, 6 or 12. Build yours below":"علب من 4 أو 6 أو 12. صمّم علبتك بالأسفل","Baked fresh every morning":"مخبوز طازجاً كل صباح",
+    "The coffee bar":"بار القهوة","Single-origin beans, roasted weekly and pulled to order. Pair a roll with the cup that suits it best.":"حبوب أحادية المنشأ تُحمَّص أسبوعياً وتُحضَّر عند الطلب. اختر مع الرول الفنجان الأنسب له.",
+    "Add the pair":"أضف الثنائي","Pulled to order":"تُحضَّر عند الطلب","Made for a roll":"صُنعت لتُرافق الرول","Roasted weekly":"تُحمَّص أسبوعياً","Single origin":"أحادية المنشأ","Sweet, chocolatey beans":"حبوب حلوة بنكهة الشوكولاتة","Always fresh, never stale":"طازجة دائماً","Oat & almond":"شوفان ولوز","Milk alternatives, +$0.60":"بدائل الحليب، +$0.60","See all coffee":"شاهد كل القهوة",
+    "The cream pour":"سكب الكريمة","Each roll is glazed at the counter, so the cream lands warm and slow, exactly when you reach for your first bite.":"كل رول يُغطّى عند الكاونتر، فتنسكب الكريمة دافئة وببطء في اللحظة التي تمدّ فيها يدك لأول قضمة.","Today's bake":"خبيز اليوم","Claimed so far. Fresh batch out of the oven at 14:00.":"محجوز حتى الآن. دفعة جديدة تخرج من الفرن الساعة 14:00.","Pre-order yours":"احجز طلبك مسبقاً",
+    "Build your box":"صمّم علبتك","Choose the size, the sauce and the toppings. We bake it fresh and tie it with a ribbon.":"اختر الحجم والصوص والإضافات. نخبزها طازجة ونربطها بشريط.","Box size":"حجم العلبة","Sauce":"الصوص","Vanilla cream":"كريمة الفانيليا","Chocolate":"شوكولاتة","Salted caramel":"كراميل مملّح","No sauce":"بدون صوص","Toppings · +$1 each":"الإضافات · +$1 لكل واحدة","Pecans":"بيكان","Pearl sugar":"سكر لؤلؤي","Cinnamon sugar":"سكر بالقرفة","Gift message (optional)":"رسالة إهداء (اختياري)","Your box":"علبتك","Add box to bag":"أضف العلبة للسلة",
+    "Three days for one swirl":"ثلاثة أيام للّفّة واحدة","Our dough rests slowly, so the layers stay tender and the butter tastes like butter.":"عجيننا يرتاح ببطء، فتبقى الطبقات طرية وطعم الزبدة زبدة حقيقية.","Fold":"الطيّ","Roll":"اللفّ","Bake":"الخَبز","Serve":"التقديم",
+    "Cultured butter is folded into the dough six times, keeping every layer cold and distinct.":"تُطوى الزبدة المُستنبتة في العجين ست مرات، لتبقى كل طبقة باردة ومتميزة.","We spread the filling by hand and roll each sheet tight, so the spiral shows in every slice.":"نفرد الحشوة باليد ونلفّ كل صفيحة بإحكام، فتظهر الدوّامة في كل شريحة.","The rolls rise overnight, then bake at dawn until the edges caramelize and the centers stay soft.":"تُخمَّر الرولز طوال الليل ثم تُخبز عند الفجر حتى تتكرمل الحواف ويبقى القلب طرياً.","Finished at the counter with warm cream, chocolate or caramel, the moment you order.":"تُغطّى عند الكاونتر بكريمة أو شوكولاتة أو كراميل دافئ لحظة الطلب.",
+    "hours of slow rest":"ساعة من الراحة البطيئة","folds of cultured butter":"طيّات من الزبدة المُستنبتة","am, when the first oven is lit":"صباحاً، حين يُشعل أول فرن","Baked at dawn.":"تُخبز عند الفجر.","Gone by noon.":"وتنفد قبل الظهر.","Our first tray leaves the oven at five. Order ahead and your favorites will be waiting.":"تخرج أول صينية من الفرن عند الخامسة. اطلب مسبقاً وستجد المفضّل عندك بانتظارك.","Order now":"اطلب الآن",
+    "The bakery is open from sunrise":"المخبز مفتوح منذ شروق الشمس","Come in for a warm roll and a coffee, or reserve a box for later.":"تعال لرول دافئ وقهوة، أو احجز علبة لوقت لاحق.","Monday – Friday":"الإثنين – الجمعة","Saturday":"السبت","Sunday":"الأحد","Reserve a box":"احجز علبة",
+    "Delivered warm, or saved for you":"تصلك دافئة، أو نحفظها لك","Order to your door, collect at the counter, or reserve a table and a box in advance.":"اطلب إلى بابك، أو استلم من الكاونتر، أو احجز طاولة وعلبة مسبقاً.","Delivery & pick-up":"التوصيل والاستلام","30–45 min":"30–45 دقيقة","Delivery across the city":"توصيل في أنحاء المدينة","Free":"مجاناً","on orders over $25":"للطلبات فوق $25","15 min":"15 دقيقة","Pick-up at the counter":"استلام من الكاونتر","Boxed warm and tied with a ribbon, so every roll arrives the way it left the oven.":"تُعبّأ دافئة وتُربط بشريط، فيصلك كل رول كما خرج من الفرن.",
+    "Reserve a table or a box":"احجز طاولة أو علبة","Name":"الاسم","Phone":"الهاتف","Date":"التاريخ","Time":"الوقت","Guests":"عدد الضيوف","For":"لـ","Table":"طاولة","Box pick-up":"استلام علبة","Confirm reservation":"تأكيد الحجز",
+    "Loved in the neighborhood":"محبوبة في الحي","Good to know":"من المفيد معرفته","Where do you deliver?":"أين توصّلون؟","Within 8 km of the bakery, usually in 30–45 minutes. Delivery is free over $25.":"ضمن 8 كم من المخبز، عادةً خلال 30–45 دقيقة. التوصيل مجاني فوق $25.",
+    "Do your rolls contain allergens?":"هل تحتوي الرولز على مسببات حساسية؟","They contain gluten, dairy and eggs, and nuts are handled in our kitchen. Each item lists its allergens.":"تحتوي على الغلوتين والألبان والبيض، والمكسرات تُستخدم في مطبخنا. وكل صنف يذكر مسببات الحساسية فيه.",
+    "Can I order for an event?":"هل يمكنني الطلب لمناسبة؟","Yes. Boxes of 12 or more need 24 hours' notice. Send us a message on WhatsApp.":"نعم. العلب من 12 فأكثر تحتاج إشعاراً قبل 24 ساعة. راسلنا على واتساب.","How can I pay?":"كيف أدفع؟","Cash or card at the door or at the counter.":"نقداً أو ببطاقة عند الباب أو عند الكاونتر.","Do you have milk alternatives?":"هل لديكم بدائل للحليب؟","Oat and almond milk for +$0.60 on any coffee.":"حليب الشوفان واللوز بزيادة $0.60 على أي قهوة.",
+    "Visit us":"زورونا","12 Baker Street, Your City":"12 شارع الخبّازين، مدينتك","Open in Maps":"افتح في الخرائط","WhatsApp":"واتساب",
+    "A good pastry takes patience. We just give it the time.":"المعجنات الجيدة تحتاج صبراً. ونحن نمنحها الوقت.","Premium began as a single oven and one recipe for cinnamon rolls. Today we still bake in small batches, with butter from a family dairy and flour from a mill we know by name.":"بدأ بريميوم بفرن واحد ووصفة واحدة لرولز القرفة. واليوم ما زلنا نخبز بدفعات صغيرة، بزبدة من مزرعة ألبان عائلية ودقيق من مطحنة نعرفها باسمها.","— The Premium bakers":"— خبّازو بريميوم","Join":"انضم","Order":"اطلب",
+    "Your bag":"سلتك","Delivery":"التوصيل","Pick-up":"استلام","Subtotal":"المجموع الفرعي","Discount":"الخصم","Apply":"طبّق","Total":"الإجمالي","Place order":"أكّد الطلب","Delivery address":"عنوان التوصيل","Promo code (try WELCOME10)":"كود الخصم (جرّب WELCOME10)","Promo code":"كود الخصم","Your email":"بريدك الإلكتروني","Your bag is empty. The rolls are waiting.":"سلتك فارغة. الرولز بانتظارك.","Close bag":"إغلاق السلة","Email":"البريد الإلكتروني","Gift message":"رسالة إهداء",
+    "Ingredients":"المكوّنات","Allergens":"مسببات الحساسية","Size":"الحجم","Milk":"الحليب","Small":"صغير","Medium":"وسط","Large":"كبير","Whole":"كامل الدسم","Oat":"شوفان","Almond":"لوز",
+    "Order received":"تم استلام الطلب","Dough in the oven":"العجين في الفرن","Boxed with a ribbon":"تعبئة وشريط","On its way":"في الطريق إليك","Ready at the counter":"جاهز عند الكاونتر","Demo tracking. We will confirm your order on WhatsApp.":"تتبّع تجريبي. سنؤكد طلبك على واتساب.","Send on WhatsApp":"أرسل على واتساب","Closed right now":"مغلق حالياً",
+    "WELCOME10 applied: 10% off":"تم تطبيق WELCOME10: خصم 10%","Invalid promo code":"كود الخصم غير صحيح","Add something delicious first":"أضف شيئاً لذيذاً أولاً","Please enter your delivery address":"من فضلك أدخل عنوان التوصيل","Welcome to the Premium family ✦":"أهلاً بك في عائلة بريميوم ✦","Reservation confirmed ✦":"تم تأكيد الحجز ✦","Chat is a demo button in this prototype":"الدردشة زر تجريبي في هذا النموذج",
+    "Signature":"مميّز","Warm":"دافئ","New":"جديد","Daily":"يومي","Favorite":"المفضّل","Seasonal":"موسمي","Slow":"بطيء","Weekend":"نهاية الأسبوع","Classic":"كلاسيكي","Smooth":"ناعم","Best seller":"الأكثر مبيعاً","Silky":"حريري","Chilled":"مثلّج","Cozy":"دافئ ومريح","Short":"قصير","Soft":"طري",
+    "Vanilla Cream Swirl":"دوّامة كريمة الفانيليا","Chocolate Pour":"رول الشوكولاتة","Pecan Caramel Roll":"رول الكراميل والبيكان","Oven-Fresh Classic":"الكلاسيكي الطازج","Butter Croissant":"كرواسون الزبدة","Pain au Chocolat":"بان أو شوكولا","Almond Pastry":"معجنات اللوز","Strawberry Cream Slice":"شريحة كريمة الفراولة","Sugar Croissant":"كرواسون بالسكر","Pain aux Raisins":"بان أو ريزن","Pistachio Glaze Cake":"كيكة الفستق","Sourdough Loaf":"رغيف العجين المخمّر","Braided Challah":"خبز الشالة المجدول","Classic Baguette":"باغيت كلاسيكي","Brioche Toast Loaf":"توست البريوش","Festive Brioche Wreath":"إكليل البريوش الاحتفالي",
+    "Espresso":"إسبريسو","Americano":"أمريكانو","Flat White":"فلات وايت","Cappuccino":"كابتشينو","Café Latte":"كافيه لاتيه","Iced Macchiato":"ماكياتو مثلّج","Iced Latte":"لاتيه مثلّج","Cortado":"كورتادو","Iced Cream Coffee":"قهوة مثلّجة بالكريمة","Cold Brew":"كولد برو","Hot Chocolate":"شوكولاتة ساخنة",
+    "A warm vanilla glaze poured over a golden, soft-centered roll.":"صوص فانيليا دافئ يُسكب على رول ذهبي طري القلب.","Silky milk chocolate over cinnamon dough, glazed to order.":"شوكولاتة بالحليب ناعمة فوق عجين القرفة، تُسكب عند الطلب.","Toasted pecans, salted caramel and a touch of fresh mint.":"بيكان محمّص وكراميل مملّح ولمسة نعناع طازج.","Our original cinnamon roll, straight from the oven.":"رول القرفة الأصلي عندنا، مباشرة من الفرن.","Shattering layers, cultured butter, baked at dawn.":"طبقات هشّة وزبدة مُستنبتة، تُخبز عند الفجر.","Two bars of dark chocolate in laminated dough.":"قطعتا شوكولاتة داكنة داخل العجين المطوي.","Frangipane, toasted almonds and powdered sugar.":"كريمة اللوز واللوز المحمّص وسكر البودرة.","Vanilla sponge, whipped cream and fresh strawberries.":"إسفنج الفانيليا وكريمة مخفوقة وفراولة طازجة.","Buttery croissants rolled in crystal sugar.":"كرواسون بالزبدة مغطّى بالسكر البلّوري.","Laminated dough, vanilla cream and plump raisins.":"عجين مطوي وكريمة فانيليا وزبيب ممتلئ.","Soft sponge under a green pistachio glaze.":"إسفنج طري تحت تغطية الفستق الخضراء.","Wild-yeast starter, long ferment, crackling crust.":"خميرة طبيعية وتخمير طويل وقشرة مقرمشة.","A glossy, sesame-topped braid with a tender crumb.":"جدلية لامعة بالسمسم ولبّ طري.","A crisp crust and an airy, open crumb.":"قشرة مقرمشة ولبّ هوائي مفتوح.","Sliced thick for toasting, golden and tender.":"شرائح سميكة للتحميص، ذهبية وطرية.","A sweet brioche crown with a crunchy nut topping.":"تاج بريوش حلو بتغطية مقرمشة من المكسرات.",
+    "A double shot with thick crema and a caramel finish.":"جرعة مزدوجة بكريما كثيفة ولمسة كراميل.","Espresso stretched with hot water for a long, clean cup.":"إسبريسو ممدود بالماء الساخن لفنجان طويل ونقي.","Velvety microfoam over a double ristretto.":"رغوة مخملية فوق ريستريتو مزدوج.","Equal parts espresso, milk and airy foam, dusted with cocoa.":"أجزاء متساوية من الإسبريسو والحليب والرغوة، مع رشة كاكاو.","A long, silky latte with a swirl of milk art.":"لاتيه طويل حريري مع رسمة حليب.","Espresso poured over ice and cold milk, layered by hand.":"إسبريسو فوق الثلج والحليب البارد، بطبقات يدوية.","Cold milk and espresso swirled over ice.":"حليب بارد وإسبريسو فوق الثلج.","Espresso cut with warm milk, served in a small glass.":"إسبريسو بحليب دافئ في كأس صغير.","Cold coffee over ice with a ribbon of cream.":"قهوة باردة فوق الثلج مع شريط من الكريمة.","Steeped for 18 hours, smooth and low in acidity.":"منقوعة 18 ساعة، ناعمة وقليلة الحموضة.","Dark chocolate melted into steamed milk, finished with cream.":"شوكولاتة داكنة ذائبة في حليب ساخن، مع كريمة."
+  };
+  const TOK = { "flour":"دقيق","butter":"زبدة","milk":"حليب","cinnamon":"قرفة","vanilla cream":"كريمة فانيليا","eggs":"بيض","milk chocolate":"شوكولاتة بالحليب","pecans":"بيكان","caramel":"كراميل","mint":"نعناع","brown sugar":"سكر بني","cultured butter":"زبدة مُستنبتة","yeast":"خميرة","dark chocolate":"شوكولاتة داكنة","almonds":"لوز","sugar":"سكر","cream":"كريمة","strawberries":"فراولة","water":"ماء","salt":"ملح","starter":"خميرة طبيعية","honey":"عسل","sesame":"سمسم","pistachio":"فستق","hazelnut":"بندق","raisins":"زبيب","single-origin espresso blend":"خلطة إسبريسو أحادية المنشأ","espresso":"إسبريسو","steamed milk":"حليب مبخّر","foam":"رغوة","hot water":"ماء ساخن","coffee":"قهوة","filtered water":"ماء مفلتر","ice":"ثلج","gluten":"غلوتين","dairy":"ألبان","nuts":"مكسرات","soy":"صويا","none":"لا شيء" };
+  const RV_AR = { "The cream pour roll is unreal. Still warm when it arrived at my door.":"رول سكب الكريمة لا يُصدَّق. وصل إلى بابي وما زال دافئاً.", "The best flat white in the neighborhood, and the pecan caramel roll is dangerous.":"أفضل فلات وايت في الحي، ورول الكراميل والبيكان خطير فعلاً.", "We booked a table for my sister's birthday. Lovely place, lovely staff.":"حجزنا طاولة لعيد ميلاد أختي. مكان جميل وفريق لطيف.", "Ordered a box of six as a gift. The ribbon and the note made her day.":"طلبت علبة من ستة هدية. الشريط والرسالة أسعداها كثيراً." };
+  const RULES = [
+    [/^Go to slide (\d+)$/, m => `انتقل إلى الشريحة ${m[1]}`],
+    [/^(.+) added to your bag$/, m => `تمت إضافة ${tr(m[1])} إلى السلة`],
+    [/^Add (\$[\d.]+) more for free delivery$/, m => `أضف ${m[1]} للحصول على توصيل مجاني`],
+    [/^\+ Add a Flat White to go with it · (\$[\d.]+)$/, m => `+ أضف فلات وايت معها · ${m[1]}`],
+    [/^Open now, until (\d+):00$/, m => `مفتوح الآن حتى ${m[1]}:00`],
+    [/^Order placed! Ready in (.+) \(demo\)$/, m => `تم تأكيد الطلب! جاهز خلال ${m[1].startsWith("15") ? "15 دقيقة" : "30–45 دقيقة"} (تجريبي)`],
+    [/^Order #(\d+)$/, m => `طلب رقم ${m[1]}`],
+    [/^(\$[\d.]+) together$/, m => `${m[1]} معاً`],
+    [/^(\d+) rolls$/, m => `${m[1]} رولز`],
+    [/^Thank you, (.+)\. (Table|Box pick-up) for (\d+) on (\S+) at (\S+) is confirmed \(demo\)\.$/, m => `شكراً ${m[1]}. تم تأكيد حجز ${tr(m[2])} لعدد ${m[3]} بتاريخ ${m[4]} الساعة ${m[5]} (تجريبي).`],
+    [/^(.+) · (\$[\d.]+)$/, m => `${tr(m[1])} · ${m[2]}`],
+    [/^(.+?) ([+−]\$[\d.]+)$/, m => `${tr(m[1])} ${m[2]}`]
+  ];
+  function tr(k) {
+    if (AR[k]) return AR[k];
+    let m;
+    if ((m = k.match(/^“(.*)”$/))) return "“" + (RV_AR[m[1]] || tr(m[1])) + "”";
+    for (const [re, f] of RULES) if ((m = k.match(re))) return f(m);
+    for (const sep of [" + ", ", "]) if (k.includes(sep)) { const p = k.split(sep), r = p.map(x => TOK[x.toLowerCase()] || tr(x)); if (r.some((x, i) => x !== p[i])) return r.join(sep === ", " ? "، " : sep); }
+    return TOK[k.toLowerCase()] || k;
+  }
+  const t1 = n => { if (n.__o === undefined) n.__o = n.nodeValue; const o = n.__o, k = o.trim(); if (k) n.nodeValue = lang === "ar" ? o.replace(k, () => tr(k)) : o; };
+  const skip = n => { const p = n.parentNode; return !p || /^(SCRIPT|STYLE)$/.test(p.nodeName) || (p.closest && p.closest("[data-noi18n],svg")); };
+  function walk(root) {
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), ns = []; while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(n => { if (!skip(n)) t1(n); });
+    if (root.querySelectorAll) [...(root.matches && root.matches("[placeholder],[aria-label]") ? [root] : []), ...root.querySelectorAll("[placeholder],[aria-label]")].forEach(el => ["placeholder", "aria-label"].forEach(a => {
+      if (!el.hasAttribute(a)) return; const key = "o_" + a.replace("-", ""); if (el.dataset[key] === undefined) el.dataset[key] = el.getAttribute(a);
+      el.setAttribute(a, lang === "ar" ? tr(el.dataset[key]) : el.dataset[key]);
+    }));
+  }
+  const MO = { childList: true, subtree: true, characterData: true };
+  const obs = new MutationObserver(ms => {
+    if (lang !== "ar") return; obs.disconnect();
+    ms.forEach(m => { m.addedNodes.forEach(n => { if (n.nodeType === 3) { if (!skip(n)) t1(n); } else if (n.nodeType === 1) walk(n); }); if (m.type === "characterData") { m.target.__o = undefined; if (!skip(m.target)) t1(m.target); } });
+    obs.observe(document.body, MO);
+  });
+  wrap.dataset.noi18n = 1; sub.dataset.noi18n = 1;
+  function applyLang() {
+    document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    obs.disconnect(); walk(document.body); obs.observe(document.body, MO);
+    $("#lang").textContent = lang === "ar" ? "English" : "العربية";
+    $$(".headline", wrap).forEach(x => x.remove()); render(cur, 0, true);
+  }
+  $("#lang").addEventListener("click", () => { lang = lang === "ar" ? "en" : "ar"; try { localStorage.setItem("premium-lang", lang); } catch (e) {} applyLang(); });
+  if (lang === "ar") applyLang();
+
+
+  const sf = () => $$(".reveal:not(.in)").forEach(e => { const r = e.getBoundingClientRect(); if (r.top < innerHeight * .9 && r.bottom > 0) e.classList.add("in"); });
+  addEventListener("scroll", sf, { passive: true }); setTimeout(sf, 600);
+
+  $("#yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
