@@ -1,11 +1,19 @@
 # Premium Boulangerie
+
 <img width="1905" height="914" alt="image" src="https://github.com/user-attachments/assets/cda50d1b-f052-4965-b8c2-5cf3e3db988b" />
+
 <img width="1890" height="958" alt="image" src="https://github.com/user-attachments/assets/9d92ae41-3d73-4949-b0fe-a80a450b8c53" />
+
 <img width="1891" height="950" alt="image" src="https://github.com/user-attachments/assets/df881cf1-2d86-43e4-ba1f-0e378cefe4e5" />
+
 <img width="1900" height="959" alt="image" src="https://github.com/user-attachments/assets/9fadd54a-73ce-41d2-bfa9-e0b92cc7ea48" />
+
 <img width="1876" height="901" alt="image" src="https://github.com/user-attachments/assets/7a4f7f38-6b34-4b98-a19a-af82dd51ec3a" />
+
 <img width="1902" height="859" alt="image" src="https://github.com/user-attachments/assets/e4b51a69-0080-4414-9962-3cdde7bcd288" />
+
 <img width="1831" height="828" alt="image" src="https://github.com/user-attachments/assets/8db8a902-4012-45de-9b7a-634fc7f311eb" />
+
 <img width="1816" height="819" alt="image" src="https://github.com/user-attachments/assets/87df9ac7-5297-4c8b-814a-83e42a44df69" />
 
 
